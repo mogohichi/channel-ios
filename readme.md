@@ -87,4 +87,4 @@ The data will show up in user side bar.
 
 
 ## Questions?
-We are always happy to help. sent us an email at channel@mogohichi.com
+We are always happy to help. Send us an email at channel@mogohichi.com
