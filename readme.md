@@ -19,7 +19,7 @@ Our SDK is compatible with iOS apps supporting iOS 8.0 and above.
 Once you downloaded the SDK, configure it with your Channel Application ID.
 ##### Objective-C
 AppDelegate.m
-```obj-c
+```objective-c
 #import "AppDelegate.h"
 #import <Channel/Channel.h>
 
@@ -61,7 +61,7 @@ You can send `userID` and `UserData` (optional) to Channel backend to help you i
 The data will show up in user side bar.
 
 ##### Objective-c
-```obj-c
+```objective-c
 - (IBAction)didTapButton:(id)sender {
     NSString* userID = @"AnyID";
     NSDictionary* userData = @{@"name":@"John",
