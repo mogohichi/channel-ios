@@ -103,7 +103,7 @@ Sometimes you want to notify a client when you sent some message from our backen
                 
             }];
             [alert addAction:later];
-            
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }];
 ```
