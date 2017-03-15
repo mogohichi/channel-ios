@@ -85,6 +85,46 @@ The data will show up in user side bar.
     }
 ```
 
+## Checking new message
+Sometimes you want to notify a client when you sent some message from our backend.
+#### Objective-C
+```objective-c
+ [Channel checkNewMessages:^(NSInteger numberOfNewMessages) {
+        if (numberOfNewMessages > 0){
+            NSString* title = [NSString stringWithFormat:@"You have new %ld messages",numberOfNewMessages];
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* view = [UIAlertAction actionWithTitle:@"View" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //open chat view 
+            }];
+            [alert addAction:view];
+        
+            UIAlertAction* later = [UIAlertAction actionWithTitle:@"Later" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [alert addAction:later];
+            
+        }
+    }];
+```
+
+#### Swift
+```swift
+Channel.checkNewMessages { (numberOfNewMessages) in
+            if numberOfNewMessages > 0 {
+                let alert = UIAlertController(title: "", message: "You have \(numberOfNewMessages) new mesage", preferredStyle: .alert)
+                let viewAction = UIAlertAction(title: "View", style: .default, handler: { (_) in
+                   //do something or open Channel chat view controller
+                })
+                alert.addAction(viewAction)
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+                   
+                })
+                alert.addAction(cancelAction)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+```
 
 ## Questions?
 We are always happy to help. Send us an email at channel@mogohichi.com
