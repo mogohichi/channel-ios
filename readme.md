@@ -14,6 +14,13 @@ Our SDK is compatible with iOS apps supporting iOS 8.0 and above.
 5. Click "Add".
 6. In "Embedded Binaries" Click "+"
 7. Select __Channel.framework__.
+8. Create a new `Run Script Phase` in your app’s target's `Build Phases` and paste the following snippet in the script text field.
+```
+bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Channel.framework/strip-frameworks.sh"
+```
+This step is required to work around an [App Store submission bug](http://www.openradar.me/radar?id=6409498411401216) when archiving universal binaries.
+
+
 
 ## Configure the SDK
 Once you downloaded the SDK, configure it with your Channel Application ID.
