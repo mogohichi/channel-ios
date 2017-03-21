@@ -111,6 +111,7 @@
 				6E7FE6851E6C37A20084F81C /* Frameworks */,
 				6E7FE6861E6C37A20084F81C /* Resources */,
 				6E7FE6A61E6C38160084F81C /* Embed Frameworks */,
+				6E5DA6471E814F6100E2579F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -166,6 +167,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E5DA6471E814F6100E2579F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Channel.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6E7FE6841E6C37A20084F81C /* Sources */ = {
@@ -337,6 +354,7 @@
 				6E7FE6A11E6C37A30084F81C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -17,7 +17,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [Channel checkNewMessages:^(NSInteger numberOfNewMessages) {
+        if (numberOfNewMessages > 0){
+            NSString* title = [NSString stringWithFormat:@"You have new %ld messages",(long)numberOfNewMessages];
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* view = [UIAlertAction actionWithTitle:@"View" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self openChatView];
+            }];
+            [alert addAction:view];
+        
+            UIAlertAction* later = [UIAlertAction actionWithTitle:@"Later" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [alert addAction:later];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
 }
 
 
@@ -26,14 +42,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)openChatView{
+    NSString* userID = @"TestID";
+    NSDictionary* userData = @{@"name":@"John",
+                               @"lastname": @"Doe"};
+    UIViewController* vc = [Channel chatViewControllerWithUserID:userID userData:userData];
+    vc.title = @"Your title here";
+    UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
+
+}
+
 - (IBAction)didTapContact:(id)sender {
-        NSString* userID = @"AnyID";
-        NSDictionary* userData = @{@"name":@"John",
-                                   @"lastname": @"Doe"};
-        UIViewController* vc = [Channel chatViewControllerWithUserID:userID userData:userData];
-        vc.title = @"Your title here";
-        UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:vc];
-        [self presentViewController:nav animated:YES completion:nil];
+    [self openChatView];
 }
 
 @end
