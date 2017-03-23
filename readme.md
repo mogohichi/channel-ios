@@ -20,6 +20,7 @@ bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Channel.framework/strip-fr
 ```
 This step is required to work around an [App Store submission bug](http://www.openradar.me/radar?id=6409498411401216) when archiving universal binaries.
 
+9. Add `NSPhotoLibraryUsageDescription` and `NSCameraUsageDescription` to a info.plist file.
 
 
 ## Configure the SDK
