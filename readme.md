@@ -62,6 +62,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ```
 
+#### More methods in setting up.
+Some app might want to enable Channel only for authroized user. If you already have your `UserID` and other `userData`.   Channel also provides these helper methods
+
+```objective-c
++ (void)setupWithApplicationId:(NSString* _Nonnull)appId;
++ (void)setupWithApplicationId:(NSString* _Nonnull)appId userID:(NSString* _Nullable)userID userData:(NSDictionary* _Nullable)userData;
++ (void)setupWithApplicationId:(NSString* _Nonnull)appId launchOptions:(NSDictionary* _Nullable)launchOptions;
++ (void)setupWithApplicationId:(NSString* _Nullable)appId userID:(NSString* _Nullable)userID userData:(NSDictionary* _Nullable)userData launchOptions:(NSDictionary* _Nullable)launchOptions;;
+```
+```swift
+open class func setup(withApplicationId appId: String)
+open class func setup(withApplicationId appId: String, userID: String?, userData: [AnyHashable : Any]?)
+open class func setup(withApplicationId appId: String, launchOptions: [AnyHashable : Any]? = nil)
+open class func setup(withApplicationId appId: String?, userID: String?, userData: [AnyHashable : Any]?, launchOptions: [AnyHashable : Any]? = nil)
+```
 
 ## Integration
 Channel provides a view controller that encapsulate all the functionalities.
@@ -167,10 +182,23 @@ There are delegates methods for in-app notification.
 
 #### Swift
 ```swift
-    optional public func channelUserDidTapButtonNotificationView(_ notification: CHNotification, button: CHNotificationButton)
-    optional public func channelUserDidTapPushNotificationTypeConversations()
-    optional public func channelUserDidTapPushNotificationTypeInAppMessage()
+optional public func channelUserDidTapButtonNotificationView(_ notification: CHNotification, button: CHNotificationButton)
+optional public func channelUserDidTapPushNotificationTypeConversations()
+optional public func channelUserDidTapPushNotificationTypeInAppMessage()
 ```
 
+## Push notification
+If you have push notification capability enabled in your app. Channel SDK will do everything for you.  
+However, if you want to provide user to opt-out from a push notification. This is disable   
+You can call the method below passing boolean value to it.
+```objective-c
+[Channel pushNotificationEnabled:YES];
+```
+```swift
+Channel.pushNotificationEnabled(true)
+```
+
+
+---
 ## Questions?
 We are always happy to help. Send us an email at channel@mogohichi.com
