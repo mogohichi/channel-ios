@@ -62,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ```
 
+
 ## Integration
 Channel provides a view controller that encapsulate all the functionalities.
 
@@ -132,6 +133,43 @@ Channel.checkNewMessages { (numberOfNewMessages) in
                 self.present(alert, animated: true, completion: nil)
             }
         }
+```
+
+## In-app notification
+This method allows you to check if there is new in-app notification to the client.
+
+#### Objective-C
+```objective-c
+[[Channel shared] showLatestNotification];
+```
+#### Swift
+```swift
+Channel.shared().showLatestNotification()
+```
+
+#### Delegate 
+```ChannelDelegate```
+There are delegates methods for in-app notification.
+
+#### Objective-C
+```objective-c
+@protocol ChannelDelegate <NSObject>
+
+@optional
+- (void)channelUserDidTapButtonNotificationView:(CHNotification* _Nonnull)notification button:(CHNotificationButton* _Nonnull)button;
+@optional
+- (void)channelUserDidTapPushNotificationTypeConversations;
+@optional
+- (void)channelUserDidTapPushNotificationTypeInAppMessage;
+@end
+
+```
+
+#### Swift
+```swift
+    optional public func channelUserDidTapButtonNotificationView(_ notification: CHNotification, button: CHNotificationButton)
+    optional public func channelUserDidTapPushNotificationTypeConversations()
+    optional public func channelUserDidTapPushNotificationTypeInAppMessage()
 ```
 
 ## Questions?
