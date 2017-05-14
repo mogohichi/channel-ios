@@ -69,13 +69,13 @@ Some app might want to enable Channel only for authroized user. If you already h
 + (void)setupWithApplicationId:(NSString* _Nonnull)appId;
 + (void)setupWithApplicationId:(NSString* _Nonnull)appId userID:(NSString* _Nullable)userID userData:(NSDictionary* _Nullable)userData;
 + (void)setupWithApplicationId:(NSString* _Nonnull)appId launchOptions:(NSDictionary* _Nullable)launchOptions;
-+ (void)setupWithApplicationId:(NSString* _Nullable)appId userID:(NSString* _Nullable)userID userData:(NSDictionary* _Nullable)userData launchOptions:(NSDictionary* _Nullable)launchOptions;;
++ (void)setupWithApplicationId:(NSString* _Nonnull)appId userID:(NSString* _Nullable)userID userData:(NSDictionary* _Nullable)userData launchOptions:(NSDictionary* _Nullable)launchOptions;;
 ```
 ```swift
 open class func setup(withApplicationId appId: String)
 open class func setup(withApplicationId appId: String, userID: String?, userData: [AnyHashable : Any]?)
 open class func setup(withApplicationId appId: String, launchOptions: [AnyHashable : Any]? = nil)
-open class func setup(withApplicationId appId: String?, userID: String?, userData: [AnyHashable : Any]?, launchOptions: [AnyHashable : Any]? = nil)
+open class func setup(withApplicationId appId: String, userID: String?, userData: [AnyHashable : Any]?, launchOptions: [AnyHashable : Any]? = nil)
 ```
 
 ## Integration
