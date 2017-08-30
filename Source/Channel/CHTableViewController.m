@@ -501,7 +501,8 @@
         
     }];
     [alert addAction:cancel];
-    
+    alert.popoverPresentationController.barButtonItem = sender;
+    alert.popoverPresentationController.sourceView = self.view;
     [self presentViewController:alert animated:YES completion:nil];
 }
 
