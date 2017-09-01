@@ -31,6 +31,8 @@
 		6E063A251E922E5C00267001 /* CHAgentListCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E063A231E922E5C00267001 /* CHAgentListCollectionViewController.m */; };
 		6E063A281E922E6B00267001 /* CHAgentCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E063A261E922E6B00267001 /* CHAgentCollectionViewCell.h */; };
 		6E063A291E922E6B00267001 /* CHAgentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E063A271E922E6B00267001 /* CHAgentCollectionViewCell.m */; };
+		6E0D7FB81F592D5F006986D7 /* CHTopic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E0D7FB61F592D5F006986D7 /* CHTopic.h */; };
+		6E0D7FB91F592D5F006986D7 /* CHTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0D7FB71F592D5F006986D7 /* CHTopic.m */; };
 		6E11946D1E43620E0044E4D4 /* CHSender.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E11946B1E43620E0044E4D4 /* CHSender.h */; };
 		6E11946E1E43620E0044E4D4 /* CHSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E11946C1E43620E0044E4D4 /* CHSender.m */; };
 		6E1194731E4376700044E4D4 /* NSAttributedString+Category.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E11946F1E4376700044E4D4 /* NSAttributedString+Category.h */; };
@@ -241,6 +243,8 @@
 		6E063A231E922E5C00267001 /* CHAgentListCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAgentListCollectionViewController.m; sourceTree = "<group>"; };
 		6E063A261E922E6B00267001 /* CHAgentCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAgentCollectionViewCell.h; sourceTree = "<group>"; };
 		6E063A271E922E6B00267001 /* CHAgentCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAgentCollectionViewCell.m; sourceTree = "<group>"; };
+		6E0D7FB61F592D5F006986D7 /* CHTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTopic.h; sourceTree = "<group>"; };
+		6E0D7FB71F592D5F006986D7 /* CHTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTopic.m; sourceTree = "<group>"; };
 		6E11946B1E43620E0044E4D4 /* CHSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSender.h; sourceTree = "<group>"; };
 		6E11946C1E43620E0044E4D4 /* CHSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSender.m; sourceTree = "<group>"; };
 		6E11946F1E4376700044E4D4 /* NSAttributedString+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Category.h"; sourceTree = "<group>"; };
@@ -495,6 +499,8 @@
 				6EC967F81E9CACB800E09E93 /* CHPostback.m */,
 				6EB3CE341EA2EFB700D51066 /* CHNotificationPayload.h */,
 				6EB3CE351EA2EFB700D51066 /* CHNotificationPayload.m */,
+				6E0D7FB61F592D5F006986D7 /* CHTopic.h */,
+				6E0D7FB71F592D5F006986D7 /* CHTopic.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -843,6 +849,7 @@
 				6E3C54241E73D68A00A89A2C /* CHCardTableViewCell.h in Headers */,
 				6E3C54201E73B7F900A89A2C /* CHCardPayloadImage.h in Headers */,
 				6E29FC961E4899110046788B /* CHLabel.h in Headers */,
+				6E0D7FB81F592D5F006986D7 /* CHTopic.h in Headers */,
 				6E063A181E92170600267001 /* CHApplication.h in Headers */,
 				6E29FC681E4839860046788B /* SSAccelerometerInfo.h in Headers */,
 				6E577A6E1EAAF5D600ACE9E1 /* UIApplicationDelegate+Channel.h in Headers */,
@@ -1087,6 +1094,7 @@
 				6EF90EC51E99D16A003B4774 /* CHNotificationPresentationController.m in Sources */,
 				6E1194741E4376700044E4D4 /* NSAttributedString+Category.m in Sources */,
 				6E2F70AE1E208D6B0027D8C6 /* CHInputBar.m in Sources */,
+				6E0D7FB91F592D5F006986D7 /* CHTopic.m in Sources */,
 				6E3D61491E3A3F2300774E29 /* CHProfileImageView.m in Sources */,
 				6E26E95D1E21D1B100AA6C42 /* CHMessageTableViewCell.m in Sources */,
 				6E29FC421E4835A40046788B /* CHDevice.m in Sources */,
