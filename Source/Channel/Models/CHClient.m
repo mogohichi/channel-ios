@@ -354,4 +354,46 @@
     }];
 }
 
+
+- (void)subscribeToTopic:(NSString*)topic block:(DidSubscribeToTopic)block{
+    
+    if ([topic isEqualToString:@""] == true) {
+        return;
+    }
+    
+    NSString* url = @"/client/topics";
+    NSMutableDictionary* params = [[NSMutableDictionary alloc]init];
+    [params setValue:topic forKey:@"topic"];
+    [CHAPI post:url params:params block:^(id data, NSError *error) {
+        if (error != nil) {
+            block(nil,error);
+            return;
+        }
+        NSDictionary* json = data;
+        CHTopic* obj = [[CHTopic alloc]initWithJSON:json];
+        block(obj,nil);
+
+    }];
+}
+
+- (void)subscribedTopicsWithBlock:(DidLoadSubscribedTopics)block {
+    NSString* url = @"/client/topics";
+
+    [CHAPI get:url params:nil block:^(id data, NSError *error) {
+        if (error != nil){
+            block(nil,error);
+            return;
+        }
+        
+        NSArray* topicLists = data;
+        
+        NSMutableArray* list = [NSMutableArray new];
+        for (NSDictionary* json in topicLists){
+            CHTopic* obj = [[CHTopic alloc]initWithJSON:json];
+            [list addObject:obj];
+        }
+        block(list,nil);
+    }];
+}
+
 @end
