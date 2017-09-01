@@ -160,4 +160,10 @@ static BOOL coldStartFromTappingOnPushNotification = NO;
     [[CHClient currentClient] appendTags:tags];
 }
 
+- (void)subscribeToTopic:(NSString* _Nonnull)topic {
+    [[CHClient currentClient] subscribeToTopic:topic block:^(CHTopic *topics, NSError *error) {
+        
+    }];
+}
+
 @end
