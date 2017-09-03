@@ -10,10 +10,12 @@
 #import <UIKit/UIKit.h>
 #import "CHNotification.h"
 #import "CHNotificationButton.h"
+#import "CHMessage.h"
 
 @class Channel;
 @class CHNotification;
 @class CHNotificationButton;
+@class CHMessage;
 
 @protocol ChannelDelegate <NSObject>
 
@@ -23,9 +25,14 @@
 - (void)channelUserDidTapPushNotificationTypeConversations;
 @optional
 - (void)channelUserDidTapPushNotificationTypeInAppMessage;
+
+@optional
+- (void)channelDidReceiveRealtimeMessage:(CHMessage* _Nonnull)message;
+
 @end
 
 typedef void (^DidCheckUnseenMessage)(NSInteger numberOfNewMessages);
+
 
 @interface Channel : NSObject
 
@@ -51,6 +58,10 @@ typedef void (^DidCheckUnseenMessage)(NSInteger numberOfNewMessages);
 
 + (void)pushNotificationEnabled:(BOOL)enabled;
 
-- (void)appendTags:(NSDictionary*)tags;
+- (void)appendTags:(NSDictionary* _Nonnull)tags;
+
+- (void)subscribeToTopic:(NSString* _Nonnull)topic;
+
+- (void)startReceivingRealtimeUpdate;
 
 @end

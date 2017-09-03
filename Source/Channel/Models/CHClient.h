@@ -13,6 +13,8 @@
 #import "CHNotification.h"
 #import "CHApplication.h"
 #import "CHAgent.h"
+#import "CHTopic.h"
+
 @class CHClient;
 
 @protocol CHClientDelegate <NSObject>
@@ -31,6 +33,9 @@ typedef void (^DidGetUpdateFromServer)();
 typedef void (^DidLoadCardTemplate)(NSString* templateString);
 typedef void (^DidGetApplicationInfo) (CHApplication* application, NSArray<CHAgent *>* agents);
 typedef void (^DidCheckNotification) (CHNotification* notification, NSError* error);
+typedef void (^DidLoadSubscribedTopics) (NSArray<CHTopic*>* topics, NSError* error);
+typedef void (^DidSubscribeToTopic) (CHTopic* topics, NSError* error);
+
 @interface CHClient : CHBase
 
 @property (nonatomic, strong) NSString* clientID;
@@ -55,6 +60,8 @@ typedef void (^DidCheckNotification) (CHNotification* notification, NSError* err
 
 - (void)subscribeUpdateFromServerWithDelegate:(id<CHClientDelegate>)delegate;
 
+- (void)subscribeUpdateFromServerWithNSNotification;
+
 - (void)unsubscribe;
 - (void)uploadImage:(UIImage*)image block:(DidFinishUploadImage)block;
 
@@ -77,5 +84,9 @@ typedef void (^DidCheckNotification) (CHNotification* notification, NSError* err
 - (void)pushNotificationEnabled:(BOOL)enabled;
 
 - (void)appendTags:(NSDictionary*)tags;
+
+- (void)subscribeToTopic:(NSString*)topic block:(DidSubscribeToTopic)block;
+
+- (void)subscribedTopicsWithBlock:(DidLoadSubscribedTopics)block;
 
 @end

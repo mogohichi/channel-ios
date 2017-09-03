@@ -187,19 +187,25 @@
     }];
 }
 
-- (void)subscribeUpdateFromServerWithDelegate:(id<CHClientDelegate>)delegate{
-    self.delegate = delegate;
+- (void)sse {
+    //avoid double connection
+    if (self.source != nil) {
+        return;
+    }
     NSURL *serverURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/subscribe",kChannel_Base_API]];
     self.source = [EventSource eventSourceWithURL:serverURL];
     [self.source onMessage:^(Event *e) {
         //we watch only for the message event
         if (![e.event isEqualToString:@""]){
+            NSData* data = [e.data dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary* obj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            CHMessage* message = [[CHMessage alloc]initWithJSON:obj];
+            //always notify the observers
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kDidReceiveRealtimeMessage" object:nil userInfo:@{@"message":message}];
             if ([self.delegate respondsToSelector:@selector(client:messageFromServer:)]){
-                NSData* data = [e.data dataUsingEncoding:NSUTF8StringEncoding];
-                NSDictionary* obj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-                CHMessage* message = [[CHMessage alloc]initWithJSON:obj];
                 [self.delegate client:self messageFromServer:message];
             }
+            
             return;
         }
     }];
@@ -220,6 +226,14 @@
     }];
 }
 
+- (void)subscribeUpdateFromServerWithNSNotification{
+    [self sse];
+}
+
+- (void)subscribeUpdateFromServerWithDelegate:(id<CHClientDelegate>)delegate{
+    self.delegate = delegate;
+    [self sse];
+}
 
 - (void)unsubscribe{
     self.delegate = nil;
@@ -351,6 +365,48 @@
     [params setValue:tags forKey:@"data"];
     [CHAPI post:url params:params block:^(id data, NSError *error) {
         
+    }];
+}
+
+
+- (void)subscribeToTopic:(NSString*)topic block:(DidSubscribeToTopic)block{
+    
+    if ([topic isEqualToString:@""] == true) {
+        return;
+    }
+    
+    NSString* url = @"/client/topics";
+    NSMutableDictionary* params = [[NSMutableDictionary alloc]init];
+    [params setValue:topic forKey:@"topic"];
+    [CHAPI post:url params:params block:^(id data, NSError *error) {
+        if (error != nil) {
+            block(nil,error);
+            return;
+        }
+        NSDictionary* json = data;
+        CHTopic* obj = [[CHTopic alloc]initWithJSON:json];
+        block(obj,nil);
+        
+    }];
+}
+
+- (void)subscribedTopicsWithBlock:(DidLoadSubscribedTopics)block {
+    NSString* url = @"/client/topics";
+    
+    [CHAPI get:url params:nil block:^(id data, NSError *error) {
+        if (error != nil){
+            block(nil,error);
+            return;
+        }
+        
+        NSArray* topicLists = data;
+        
+        NSMutableArray* list = [NSMutableArray new];
+        for (NSDictionary* json in topicLists){
+            CHTopic* obj = [[CHTopic alloc]initWithJSON:json];
+            [list addObject:obj];
+        }
+        block(list,nil);
     }];
 }
 

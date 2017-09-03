@@ -21,7 +21,7 @@
 @import UIKit;
 @import UserNotifications;
 
-@interface Channel()<UIViewControllerTransitioningDelegate>
+@interface Channel()<UIViewControllerTransitioningDelegate, CHClientDelegate>
 
 @end
 
@@ -159,5 +159,27 @@ static BOOL coldStartFromTappingOnPushNotification = NO;
 - (void)appendTags:(NSDictionary*)tags{
     [[CHClient currentClient] appendTags:tags];
 }
+
+- (void)subscribeToTopic:(NSString* _Nonnull)topic {
+    [[CHClient currentClient] subscribeToTopic:topic block:^(CHTopic *topics, NSError *error) {
+        
+    }];
+}
+
+
+- (void)startReceivingRealtimeUpdate {
+    [[CHClient currentClient] subscribeUpdateFromServerWithNSNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"kDidReceiveRealtimeMessage" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveRealtimeMessage:) name:@"kDidReceiveRealtimeMessage" object:nil];
+}
+
+
+- (void)didReceiveRealtimeMessage:(NSNotification*)info {
+    CHMessage* message = info.userInfo[@"message"];
+    if ([self.delegate respondsToSelector:@selector(channelDidReceiveRealtimeMessage:)]) {
+        [self.delegate channelDidReceiveRealtimeMessage:message];
+    }
+}
+
 
 @end
