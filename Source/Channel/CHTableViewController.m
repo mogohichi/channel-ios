@@ -32,6 +32,7 @@
 @end
 
 @interface CHTableViewController ()<CHInputBarDelegate, CHThreadDelegate, TTTAttributedLabelDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CHCardTypeImageTableViewCellDelegate, CHButtonListToolbarDelegate, CHClientDelegate, UIViewControllerTransitioningDelegate>
+
 @property (strong, nonatomic) IBOutlet UIView *headerContainerView;
 @property (strong, nonatomic) IBOutlet UILabel *headerTitleLabel;
 
@@ -67,38 +68,40 @@
 }
 
 - (void)loadActiveThread{
+    __unsafe_unretained CHTableViewController *weakSelf = self;
     [[CHClient currentClient] activeThread:^(CHThread *thread, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.thread = thread;
-            self.thread.delegate = self;
-            self.tableView.delegate = self;
-            self.tableView.dataSource = self;
-            [self.tableView reloadData];
-            [self scrollToBottom];
-            [self becomeFirstResponder];
-            [self reloadInputViews];
+            weakSelf.thread = thread;
+            weakSelf.thread.delegate = self;
+            weakSelf.tableView.delegate = self;
+            weakSelf.tableView.dataSource = self;
+            [weakSelf.tableView reloadData];
+            [weakSelf scrollToBottom];
+            [weakSelf becomeFirstResponder];
+            [weakSelf reloadInputViews];
         });
     }];
 }
 
 - (void)loadMessages{
+    __unsafe_unretained CHTableViewController *weakSelf = self;
     [[CHClient currentClient] loadMoreMessage:self.thread block:^(CHThread *thread,NSArray<CHMessage*>* messages, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.refreshControl endRefreshing];
+            [weakSelf.refreshControl endRefreshing];
             if (messages == nil || messages.count == 0){
                 return;
             }
-            self.thread.nextMessagesURL = thread.nextMessagesURL;
+            weakSelf.thread.nextMessagesURL = thread.nextMessagesURL;
             
-            self.heightAtIndexPath = [NSMutableDictionary new];
+            weakSelf.heightAtIndexPath = [NSMutableDictionary new];
             
             //insert into a first row
             for (CHMessage* m in [[messages reverseObjectEnumerator] allObjects]){
                 [self.thread.messages insertObject:m atIndex:0];
             }
-            [self.tableView reloadData];
+            [weakSelf.tableView reloadData];
             NSIndexPath* lastIndexPath = [NSIndexPath indexPathForRow:messages.count inSection:0];
-            [self.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            [weakSelf.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
         });
     }];
 }
@@ -134,14 +137,15 @@
 }
 
 - (void)loadApplicationInfo{
+    __unsafe_unretained CHTableViewController *weakSelf = self;
     [[CHClient currentClient] applicationInfo:^(CHApplication *application, NSArray<CHAgent *> *agents) {
         if (application == nil) {
             return;
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.currentApplication = application;
-            self.headerTitleLabel.text = [NSString stringWithFormat:@"%@ Team", application.name];
-            CHAgentListCollectionViewController* agentViewController = (CHAgentListCollectionViewController*)self.childViewControllers.firstObject;
+            weakSelf.currentApplication = application;
+            weakSelf.headerTitleLabel.text = [NSString stringWithFormat:@"%@ Team", application.name];
+            CHAgentListCollectionViewController* agentViewController = (CHAgentListCollectionViewController*)weakSelf.childViewControllers.firstObject;
             agentViewController.agents = agents;
             
             if (application.settings != nil) {
@@ -151,7 +155,7 @@
                         NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:backgroundImageURL]];
                         UIImage* backgroundImage = [UIImage imageWithData:imageData];
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            self.tableView.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+                            weakSelf.tableView.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
                         });
                     });
                 }
@@ -165,12 +169,12 @@
     self.tableView.delegate = nil;
     self.tableView.dataSource = nil;
     // self.title = @"Your Appliation Name";
-    
+    __unsafe_unretained CHTableViewController *weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self loadApplicationInfo];
+        [weakSelf loadApplicationInfo];
         [[CHClient currentClient] updateClientDataWithUserID:[CHClient currentClient].userID userData:[CHClient currentClient].userData block:^(NSError *error) {
-            [self loadActiveThread];
-            [self clientActiveStatus:true];
+            [weakSelf loadActiveThread];
+            [weakSelf clientActiveStatus:true];
         }];
     });
     
@@ -197,7 +201,7 @@
     
     self.observerAppTermination = [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillTerminateNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         [[CHClient currentClient] unsubscribe];
-        [self clientActiveStatus:false];
+        [weakSelf clientActiveStatus:false];
     }];
     
 }
@@ -332,12 +336,12 @@
     cell.message = message;
     cell.messageLabel.delegate = self;
     cell.application = self.currentApplication;
-    
+    __unsafe_unretained CHTableViewController *weakSelf = self;
     if (message.sender.imageUrl != nil){
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:message.sender.imageUrl]];
             dispatch_async(dispatch_get_main_queue(), ^{
-                CHMessageTableViewCell *toUpdateCell = [self.tableView cellForRowAtIndexPath:indexPath];
+                CHMessageTableViewCell *toUpdateCell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
                 if (toUpdateCell != nil) {
                     toUpdateCell.profileImageView.image = [UIImage imageWithData:data];
                 }
@@ -353,12 +357,12 @@
     NSString* cellIdentifier = message.isFromBusiness ? [NSString stringWithFormat:@"%@-%@-Received",cellPrefix,message.content.card.type] : [NSString stringWithFormat:@"%@-%@-Sent", cellPrefix, message.content.card.type];
     CHCardTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.message = message;
-    
+    __unsafe_unretained CHTableViewController *weakSelf = self;
     if (message.sender.imageUrl != nil){
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:message.sender.imageUrl]];
             dispatch_async(dispatch_get_main_queue(), ^{
-                CHCardTypeImageTableViewCell *toUpdateCell = [self.tableView cellForRowAtIndexPath:indexPath];
+                CHCardTypeImageTableViewCell *toUpdateCell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
                 if (toUpdateCell != nil) {
                     toUpdateCell.profileImageView.image = [UIImage imageWithData:data];
                 }
@@ -389,7 +393,7 @@
                             UIImage* image = [UIImage imageWithData:data];
                             [image saveToCacheDirectory:imagePayload.imageURL.absoluteString.lastPathComponent];
                             dispatch_async(dispatch_get_main_queue(), ^{
-                                CHCardTypeImageTableViewCell *toUpdateCell = [self.tableView cellForRowAtIndexPath:indexPath];
+                                CHCardTypeImageTableViewCell *toUpdateCell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
                                 if (toUpdateCell != nil) {
                                     toUpdateCell.payloadImageView.image = image;
                                 }
@@ -427,7 +431,7 @@
         [webCell layoutIfNeeded];
         [[CHClient currentClient] loadCardTemplate:payload block:^(NSString *templateString) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                CHCardWebViewTableViewCell *webCell = [self.tableView cellForRowAtIndexPath:indexPath];
+                CHCardWebViewTableViewCell *webCell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
                 [webCell.webView loadHTMLString:templateString baseURL:nil];
             });
         }];
@@ -555,6 +559,7 @@
     self.imagePickerController.delegate = nil;
     self.imagePickerController = nil;
     
+    __unsafe_unretained CHTableViewController *weakSelf = self;
     UIImage* resizedImage = [originalImage scaledToMaxWidth:1000 maxHeight:1000];
     [[CHClient currentClient] uploadImage:resizedImage block:^(NSURL *imageURL, NSError *error) {
         if (error != nil){
@@ -563,7 +568,7 @@
         //[self loadActiveThread];
         CHMessage* message = [[CHMessage alloc]initWithImageURL:imageURL];
         message.isFromBusiness = false;
-        [self.thread addMessage:message];
+        [weakSelf.thread addMessage:message];
     }];
 }
 
@@ -583,9 +588,10 @@
 
 #pragma mark - CHClientDelegate
 -(void)client:(CHClient *)client messageFromServer:(CHMessage *)message{
+    __unsafe_unretained CHTableViewController *weakSelf = self;
     dispatch_async(self.insertTableQueue, ^{
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.thread addMessage:message];
+            [weakSelf.thread addMessage:message];
         });
     });
 }

@@ -60,6 +60,8 @@ typedef void (^DidSubscribeToTopic) (CHTopic* topics, NSError* error);
 
 - (void)subscribeUpdateFromServerWithDelegate:(id<CHClientDelegate>)delegate;
 
+- (void)subscribeUpdateFromServerWithNSNotification;
+
 - (void)unsubscribe;
 - (void)uploadImage:(UIImage*)image block:(DidFinishUploadImage)block;
 
