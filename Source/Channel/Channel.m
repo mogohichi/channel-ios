@@ -80,7 +80,11 @@ static BOOL coldStartFromTappingOnPushNotification = NO;
 
 +(void)setupWithApplicationId:(NSString *)appId userID:(NSString *)userID userData:(NSDictionary *)userData launchOptions:(NSDictionary *)launchOptions {
     [CHConfiguration sharedConfiguration].applicationId = appId;
-    [Channel registerForPushNotifications];
+  
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [Channel registerForPushNotifications];
+    });
+    
     if (userID != nil) {
         [CHClient currentClient].userID = userID;
     }
