@@ -33,7 +33,7 @@
         return @"PUT";
             break;
     case DELETE:
-        return @"DEL";
+        return @"DELETE";
         break;
     default:
         break;
