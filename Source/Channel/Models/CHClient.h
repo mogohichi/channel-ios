@@ -35,6 +35,7 @@ typedef void (^DidGetApplicationInfo) (CHApplication* application, NSArray<CHAge
 typedef void (^DidCheckNotification) (CHNotification* notification, NSError* error);
 typedef void (^DidLoadSubscribedTopics) (NSArray<CHTopic*>* topics, NSError* error);
 typedef void (^DidSubscribeToTopic) (CHTopic* topics, NSError* error);
+typedef void (^DidUnsubscribeFromTopic) (CHTopic* topics, NSError* error);
 
 @interface CHClient : CHBase
 
@@ -86,6 +87,8 @@ typedef void (^DidSubscribeToTopic) (CHTopic* topics, NSError* error);
 - (void)appendTags:(NSDictionary*)tags;
 
 - (void)subscribeToTopic:(NSString*)topic block:(DidSubscribeToTopic)block;
+
+- (void)unsubscribeFromTopic:(NSString*)topic block:(DidUnsubscribeFromTopic)block;
 
 - (void)subscribedTopicsWithBlock:(DidLoadSubscribedTopics)block;
 
