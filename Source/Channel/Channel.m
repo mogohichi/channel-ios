@@ -43,17 +43,21 @@
             if (granted == NO) {
                 return;
             }
-            [[UIApplication sharedApplication] registerForRemoteNotifications];
-            [Channel registerAsUNNotificationCenterDelegate];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[UIApplication sharedApplication] registerForRemoteNotifications];
+                [Channel registerAsUNNotificationCenterDelegate];
+            });
+            
         }];
     } else {
         UIUserNotificationSettings *settings =
         [UIUserNotificationSettings
          settingsForTypes: UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound
          categories:nil];
-        
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+            [[UIApplication sharedApplication] registerForRemoteNotifications];
+        });
     }
 }
 
@@ -80,7 +84,7 @@ static BOOL coldStartFromTappingOnPushNotification = NO;
 
 +(void)setupWithApplicationId:(NSString *)appId userID:(NSString *)userID userData:(NSDictionary *)userData launchOptions:(NSDictionary *)launchOptions {
     [CHConfiguration sharedConfiguration].applicationId = appId;
-  
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [Channel registerForPushNotifications];
     });

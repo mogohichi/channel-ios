@@ -9,11 +9,8 @@
 #import "CHConstants.h"
 
 @implementation CHConstants
-#ifdef DEBUG
-#define BASE_URL @"http://localhost:8080/api"
-#else
+
 #define BASE_URL @"https://api.getchannel.co"
-#endif
 
 NSString* const kError_Domain = @"co.getchannel";
 NSString* const kChannel_Base_API = BASE_URL;
