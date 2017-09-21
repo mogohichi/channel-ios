@@ -51,8 +51,6 @@
     NSString* clientID = [CHClient currentClient].clientID;
     if (clientID != nil && ![clientID isEqualToString:@""]){
         [request addValue:clientID forHTTPHeaderField:@"X-Channel-Client-ID"];
-    }else{
-        [request addValue:@"TestClientIDGeneratedFromClient" forHTTPHeaderField:@"X-Channel-Client-ID"];
     }
     
     [request setHTTPMethod:[self methodToString:method]];

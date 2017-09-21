@@ -227,12 +227,16 @@
 }
 
 - (void)subscribeUpdateFromServerWithNSNotification{
-    [self sse];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self sse];
+    });
 }
 
 - (void)subscribeUpdateFromServerWithDelegate:(id<CHClientDelegate>)delegate{
-    self.delegate = delegate;
-    [self sse];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.delegate = delegate;
+        [self sse];
+    });
 }
 
 - (void)unsubscribe{

@@ -144,9 +144,10 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.currentApplication = application;
-            weakSelf.headerTitleLabel.text = [NSString stringWithFormat:@"%@ Team", application.name];
-            CHAgentListCollectionViewController* agentViewController = (CHAgentListCollectionViewController*)weakSelf.childViewControllers.firstObject;
-            agentViewController.agents = agents;
+           // weakSelf.headerTitleLabel.text = [NSString stringWithFormat:@"%@ Team", application.name];
+            weakSelf.title = application.name;
+//            CHAgentListCollectionViewController* agentViewController = (CHAgentListCollectionViewController*)weakSelf.childViewControllers.firstObject;
+//            agentViewController.agents = agents;
             
             if (application.settings != nil) {
                 NSString* backgroundImageURL = application.settings.publicChat[@"backgroundImage"];
