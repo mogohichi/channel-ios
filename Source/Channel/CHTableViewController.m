@@ -333,10 +333,9 @@
     NSString* cellIdentifier = message.isFromBusiness ? [NSString stringWithFormat:@"%@-Received",cellPrefix] : [NSString stringWithFormat:@"%@-Sent",cellPrefix];
     
     CHMessageTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    
+    cell.application = self.currentApplication;
     cell.message = message;
     cell.messageLabel.delegate = self;
-    cell.application = self.currentApplication;
     __unsafe_unretained CHTableViewController *weakSelf = self;
     if (message.sender.imageUrl != nil){
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
