@@ -85,10 +85,6 @@ static BOOL coldStartFromTappingOnPushNotification = NO;
 +(void)setupWithApplicationId:(NSString *)appId userID:(NSString *)userID userData:(NSDictionary *)userData launchOptions:(NSDictionary *)launchOptions {
     [CHConfiguration sharedConfiguration].applicationId = appId;
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [Channel registerForPushNotifications];
-    });
-    
     if (userID != nil) {
         [CHClient currentClient].userID = userID;
     }
@@ -101,11 +97,15 @@ static BOOL coldStartFromTappingOnPushNotification = NO;
         coldStartFromTappingOnPushNotification = YES;
     }
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        [CHClient connectClientwithUserID:userID userData:userData block:^(NSError *error) {
-            
-        }];
-    });
+    
+    [CHClient connectClientwithUserID:userID userData:userData block:^(NSError *error) {
+        if (error == nil) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [Channel registerForPushNotifications];
+            });
+        }
+    }];
+    
 }
 
 +(UIViewController *)chatViewControllerWithUserID:(NSString* _Nonnull)userID userData:(NSDictionary* _Nullable)userData{
