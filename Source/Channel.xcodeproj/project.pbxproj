@@ -128,6 +128,7 @@
 		6E46B3621E7F834B00791839 /* CHCardPayloadTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E46B3601E7F834B00791839 /* CHCardPayloadTemplate.m */; };
 		6E492B611E4C7CE6001BC44C /* CHMessageLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E492B5F1E4C7CE6001BC44C /* CHMessageLabel.h */; };
 		6E492B621E4C7CE6001BC44C /* CHMessageLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E492B601E4C7CE6001BC44C /* CHMessageLabel.m */; };
+		6E4FD1CC1F8B992C007B64D5 /* CHBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E7692E31E3F6CCA00BCB896 /* CHBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E5027C51E069D4900A27517 /* Channel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5027C31E069D4900A27517 /* Channel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E5027C61E069D4900A27517 /* CHConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5027C41E069D4900A27517 /* CHConfiguration.h */; };
 		6E557D5E1E829424006666EA /* CHCardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E557D5C1E829424006666EA /* CHCardButton.m */; };
@@ -824,6 +825,7 @@
 				6E0D7FC11F5BA725006986D7 /* CHCardButton.h in Headers */,
 				6E26E9571E21C57E00AA6C42 /* CHContent.h in Headers */,
 				6E0D7FB81F592D5F006986D7 /* CHTopic.h in Headers */,
+				6E4FD1CC1F8B992C007B64D5 /* CHBlock.h in Headers */,
 				6EC967F91E9CACB800E09E93 /* CHPostback.h in Headers */,
 				6E26E94B1E21C30C00AA6C42 /* CHBase.h in Headers */,
 				6E0D7FCE1F5BAAF9006986D7 /* CHCardPayloadTemplate.h in Headers */,
