@@ -174,6 +174,12 @@ static BOOL coldStartFromTappingOnPushNotification = NO;
     }];
 }
 
+- (void)unsubscribeFromTopic:(NSString* _Nonnull)topic block:(_Nonnull DidFinish)block {
+    [[CHClient currentClient] unsubscribeFromTopic:topic block:^(CHTopic *topics, NSError *error) {
+        block();
+    }];
+}
+
 
 - (void)startReceivingRealtimeUpdate {
     [[CHClient currentClient] subscribeUpdateFromServerWithNSNotification];

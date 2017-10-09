@@ -7,3 +7,4 @@
 //
 
 typedef void(^Completion)(id data,NSError* error);
+typedef void (^DidFinish) ();
