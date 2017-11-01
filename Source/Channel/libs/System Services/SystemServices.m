@@ -17,7 +17,7 @@
 
 @implementation SystemServices
 
-@dynamic allSystemInformation, systemsUptime, deviceModel, deviceName, systemName, systemsVersion, systemDeviceTypeNotFormatted, systemDeviceTypeFormatted, screenWidth, screenHeight, screenBrightness, multitaskingEnabled, proximitySensorEnabled, debuggerAttached, pluggedIn, jailbroken, numberProcessors, numberActiveProcessors, processorsUsage, accessoriesAttached, headphonesAttached, numberAttachedAccessories, nameAttachedAccessories, carrierName, carrierCountry, carrierMobileCountryCode, carrierISOCountryCode, carrierMobileNetworkCode, carrierAllowsVOIP, batteryLevel, charging, fullyCharged, currentIPAddress, externalIPAddress, cellIPAddress, cellNetmaskAddress, cellBroadcastAddress, wiFiIPAddress, wiFiNetmaskAddress, wiFiBroadcastAddress, wiFiRouterAddress, connectedToWiFi, connectedToCellNetwork, processID, diskSpace, freeDiskSpaceinRaw, freeDiskSpaceinPercent, usedDiskSpaceinRaw, usedDiskSpaceinPercent, longDiskSpace, longFreeDiskSpace, totalMemory, freeMemoryinRaw, freeMemoryinPercent, usedMemoryinRaw, usedMemoryinPercent, activeMemoryinRaw, activeMemoryinPercent, inactiveMemoryinRaw, inactiveMemoryinPercent, wiredMemoryinRaw, wiredMemoryinPercent, purgableMemoryinRaw, purgableMemoryinPercent, deviceOrientation, country, language, timeZoneSS, currency, applicationVersion, clipboardContent, cfuuid, applicationCPUUsage;
+@dynamic allSystemInformation, systemsUptime, deviceModel, deviceName, systemName, systemsVersion, systemDeviceTypeNotFormatted, systemDeviceTypeFormatted, screenWidth, screenHeight, screenBrightness, multitaskingEnabled, proximitySensorEnabled, debuggerAttached, pluggedIn, jailbroken, numberProcessors, numberActiveProcessors, processorsUsage, accessoriesAttached, headphonesAttached, numberAttachedAccessories, nameAttachedAccessories, carrierName, carrierCountry, carrierMobileCountryCode, carrierISOCountryCode, carrierMobileNetworkCode, carrierAllowsVOIP, batteryLevel, charging, fullyCharged, currentIPAddress, externalIPAddress, cellIPAddress, cellNetmaskAddress, cellBroadcastAddress, wiFiIPAddress, wiFiNetmaskAddress, wiFiBroadcastAddress, wiFiRouterAddress, connectedToWiFi, connectedToCellNetwork, processID, diskSpace, freeDiskSpaceinRaw, freeDiskSpaceinPercent, usedDiskSpaceinRaw, usedDiskSpaceinPercent, longDiskSpace, longFreeDiskSpace, totalMemory, freeMemoryinRaw, freeMemoryinPercent, usedMemoryinRaw, usedMemoryinPercent, activeMemoryinRaw, activeMemoryinPercent, inactiveMemoryinRaw, inactiveMemoryinPercent, wiredMemoryinRaw, wiredMemoryinPercent, purgableMemoryinRaw, purgableMemoryinPercent, deviceOrientation, country, language, timeZoneSS, currency, applicationVersion, cfuuid, applicationCPUUsage;
 
 // Singleton
 + (nonnull instancetype)sharedServices {
@@ -307,10 +307,6 @@
     return [SSApplicationInfo applicationVersion];
 }
 
-- (NSString *)clipboardContent {
-    return [SSApplicationInfo clipboardContent];
-}
-
 - (NSString *)cfuuid {
     return [SSUUID cfuuid];
 }
@@ -401,7 +397,6 @@
     NSString *timeZone = [self timeZoneSS];
     NSString *currency = [self currency];
     NSString *applicationVersion = [self applicationVersion];
-    NSString *clipboardContent = [self clipboardContent];
     NSString *cFUUID = [self cfuuid];
     NSString *cPUUsage = [NSString stringWithFormat:@"%f", [self applicationCPUUsage]];
     
@@ -682,10 +677,7 @@
         // Invalid value
         applicationVersion = @"Unknown";
     }
-    if (clipboardContent == nil || clipboardContent.length <= 0) {
-        // Invalid value
-        clipboardContent = @"Unknown";
-    }
+
     if (cFUUID == nil || cFUUID.length <= 0) {
         // Invalid value
         cFUUID = @"Unknown";
@@ -766,7 +758,6 @@
                                                                  timeZone,
                                                                  currency,
                                                                  applicationVersion,
-                                                                 clipboardContent,
                                                                  cFUUID,
                                                                  cPUUsage,
                                                                  nil]
@@ -840,7 +831,6 @@
                                                                  @"TimeZone",
                                                                  @"Currency",
                                                                  @"ApplicationVersion",
-                                                                 @"ClipboardContent",
                                                                  @"CFUUID",
                                                                  @"CPUUsage",
                                                                  nil]];
