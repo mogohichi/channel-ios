@@ -264,8 +264,6 @@
 // Application Version
 @property (nonatomic, readonly, nullable) NSString *applicationVersion;
 
-// Clipboard Content
-@property (nonatomic, readonly, nullable) NSString *clipboardContent;
 
 // Application CPU Usage
 @property (nonatomic, readonly) float applicationCPUUsage;
