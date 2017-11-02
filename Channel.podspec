@@ -21,8 +21,8 @@ Pod::Spec.new do |s|
 	s.source       = { :git => "https://github.com/mogohichi/channel-ios.git", :tag => "#{s.version}" }
 
 
-	s.source_files  = "Channel", "Source/Channel/**/*.{h,m}"
+	s.source_files  = "Source/Channel/**/*.{h,m}"
 	s.exclude_files = "Source/Channel/Exclude"
-
+	s.resources     = 'Source/Channel/**/*.{json,png,jpeg,jpg,storyboard,xib,xcassets,imageset}'
 
 end
