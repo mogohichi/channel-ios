@@ -54,6 +54,7 @@
 }
 
 -(void)prepareForReuse {
+    [super prepareForReuse];
     self.profileImageView.image = nil;
 }
 

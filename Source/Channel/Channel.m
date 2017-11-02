@@ -196,4 +196,8 @@ static BOOL coldStartFromTappingOnPushNotification = NO;
 }
 
 
+- (void)client:(CHClient *)client messageFromServer:(CHMessage *)message {
+    
+}
+
 @end
