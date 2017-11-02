@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 	s.name         = "Channel"
-	s.version      = "0.11.0"
+	s.version      = "0.11.1"
 	s.summary      = "The Channel iOS SDK makes it easier for you to integreate messaging into your app."
 
 
