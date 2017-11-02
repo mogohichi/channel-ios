@@ -1,11 +1,11 @@
 
 Pod::Spec.new do |s|
 	s.name         = "Channel"
-	s.version      = "0.10.7"
+	s.version      = "0.11.0"
 	s.summary      = "The Channel iOS SDK makes it easier for you to integreate messaging into your app."
 
 
-	s.description  = "The Channel iOS SDK makes it easier for you to integreate messaging into your app. https://www.getchannel.co"
+	s.description  = "Drop-in messaging sdk for your app. Send/Receive messages. In-app notification and Push notification."
 
 	s.homepage     = "https://www.getchannel.co"
 	s.screenshots  = "https://www.getchannel.co/img/ios.png"
@@ -21,8 +21,8 @@ Pod::Spec.new do |s|
 	s.source       = { :git => "https://github.com/mogohichi/channel-ios.git", :tag => "#{s.version}" }
 
 
-	s.source_files  = "Channel", "Channel/**/*.{h,m}"
-	s.exclude_files = "Channel/Exclude"
+	s.source_files  = "Channel", "Source/Channel/**/*.{h,m}"
+	s.exclude_files = "Source/Channel/Exclude"
 
 
 end

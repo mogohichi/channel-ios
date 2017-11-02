@@ -212,23 +212,6 @@ double rad(double deg)
     }];
 }
 
-#pragma mark - apply filter
--(UIImage*)applyFilter:(CIFilter*)filter{
-    if (filter) {
-        CIContext* context = [[CIContext alloc]init];
-        
-        CIImage* coreImage = [[CIImage alloc]initWithCGImage:self.CGImage];
-        [filter setValue:coreImage forKey:kCIInputImageKey];
-        
-        CIImage* filteredImage = [filter valueForKey:kCIOutputImageKey];
-        if (filteredImage) {
-            CGImageRef* cgimg =  [context createCGImage:filteredImage fromRect:filteredImage.extent];
-            return [[UIImage alloc]initWithCGImage:cgimg];
-        }
-    }
-    return self;
-}
-
 
 - (UIImage *)scaledToSize:(CGSize)size {
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {

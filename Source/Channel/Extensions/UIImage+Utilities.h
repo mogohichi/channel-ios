@@ -17,25 +17,12 @@
 
 - (CGRect)convertCropRect:(CGRect)cropRect;
 - (UIImage *)croppedImage:(CGRect)cropRect;
-
-
--(UIImage*)cropImageFromLibrary:(CGRect)cropRect;
-
+- (UIImage*)cropImageFromLibrary:(CGRect)cropRect;
 - (UIImage *)scaledToSize:(CGSize)size;
 - (UIImage *)scaledToMaxWidth:(CGFloat)width maxHeight:(CGFloat)height;
-
--(NSString*)saveToCacheDirectory:(NSString*)filename;
-+(UIImage*)imageFromCacheDirectory:(NSString*)filename;
-
-
--(void)saveImageToAlbum;
-
-
-+(void)deleteFromCacheDirectory:(NSString*)filename;
-
-
-
--(UIImage*)applyFilter:(CIFilter*)filter;
-
+- (NSString*)saveToCacheDirectory:(NSString*)filename;
++ (UIImage*)imageFromCacheDirectory:(NSString*)filename;
+- (void)saveImageToAlbum;
++ (void)deleteFromCacheDirectory:(NSString*)filename;
 - (UIImage*)withWhiteBorderLeft:(CGFloat)left right:(CGFloat)right top:(CGFloat)top bottom:(CGFloat)bottom;
 @end

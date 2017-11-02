@@ -22,6 +22,7 @@
 }
 
 -(void)prepareForReuse{
+    [super prepareForReuse];
     self.payloadImageView.image = nil;
 }
 
