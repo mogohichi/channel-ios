@@ -23,6 +23,11 @@
 @property (nonatomic, nullable) id<CHThreadDelegate> delegate;
 @property (nonatomic, nullable) NSString* nextMessagesURL;
 
+//Added November 30
+@property (nonatomic, nullable, readonly) NSString* publicID;
+@property (nonatomic, nullable, readonly) NSString* threadOwnerClientID;
+
+- (instancetype _Nullable )initWithJSON:(NSDictionary*_Nullable)json;
 
 - (void)addText:(NSString* _Nonnull)text;
 - (void)addMessage:(CHMessage* _Nonnull)message;

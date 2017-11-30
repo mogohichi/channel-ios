@@ -434,5 +434,102 @@
         block(list,nil);
     }];
 }
+//POST  /api/conversation/search/{appUserID}
+//GET "/api/conversations"
+//POST "/api/conversations"
+//POST "/api/conversation/{threadID}/join"
+//POST "/api/conversation/{threadID}/leave"
+
+- (void)searchUserByID:(NSString*)query block:(DidSearchUser)block {
+    NSString* url =  [NSString stringWithFormat:@"/search/client?q=%@",query];
+    [CHAPI get:url params:nil block:^(id data, NSError *error) {
+        if (error != nil) {
+            block(nil,error);
+            return;
+        }
+        NSDictionary* json = data;
+        CHUser* obj = [[CHUser alloc]initWithJSON:json];
+        block(obj,nil);
+    }];
+}
+
+- (void)conversations:(DidLoadConversations)block {
+    NSString* url = @"/conversations";
+    [CHAPI get:url params:nil block:^(id data, NSError *error) {
+        if (error != nil){
+            block(nil,error);
+            return;
+        }
+        NSArray* dataList = data;
+        NSMutableArray* list = [NSMutableArray new];
+        for (NSDictionary* json in dataList){
+            CHConversation* obj = [[CHConversation alloc]initWithJSON:json];
+            [list addObject:obj];
+        }
+        block(list,nil);
+    }];
+}
+
+- (void)startConversation:(NSArray<CHUser*>*)users block:(DidStartConversationThread)block{
+    NSString* url = @"/conversations";
+    NSMutableDictionary* params = [[NSMutableDictionary alloc]init];
+    NSMutableArray* clientList = [[NSMutableArray alloc]init];
+    for (CHUser* u in users) {
+        [clientList addObject:u.publicID];
+    }
+    [params setValue:clientList forKey:@"clients"];
+    [CHAPI post:url params:params block:^(id data, NSError *error) {
+        if (error != nil) {
+            block(nil,error);
+            return;
+        }
+        NSDictionary* json = data;
+        CHThread* obj = [[CHThread alloc]initWithJSON:json];
+        block(obj,nil);
+        
+    }];
+}
+
+- (void)loadConversationThread:(CHThread*)thread block:(DidLoadConversationThread)block {
+    NSString* url =  [NSString stringWithFormat:@"/thread/messages?threadID=%@", thread.publicID];
+    [CHAPI get:url params:nil block:^(id data, NSError *error) {
+        if (error != nil){
+            block(nil,error);
+            return;
+        }
+        
+        NSArray* messages = data[@"messages"];
+        thread.nextMessagesURL = data[@"next"];
+       NSMutableArray* list = [NSMutableArray new];
+        for (NSDictionary* m in messages){
+            CHMessage* message = [[CHMessage alloc]initWithJSON:m];
+            [thread addMessage:message];
+        }
+        block(thread, nil);
+    }];
+}
+
+- (void)sendMessage:(CHMessage*)message thread:(CHThread*)thread block:(DidSendMessage)block{
+    NSString* url =  [NSString stringWithFormat:@"/thread/messages?threadID=%@", thread.publicID];
+    NSMutableDictionary* params = [[NSMutableDictionary alloc]init];
+    NSMutableDictionary* data = [[NSMutableDictionary alloc]initWithDictionary:[message toJSON]];
+    [params setValue:data forKey:@"data"];
+    [CHAPI post:url params:params block:^(id data, NSError *error) {
+    }];
+}
+
+- (void)joinThread:(CHThread*)thread block:(DidJoinConversationThread)block {
+    NSString* url =  [NSString stringWithFormat:@"/conversation/%@/join", thread.publicID];
+    [CHAPI post:url params:nil block:^(id data, NSError *error) {
+    }];
+}
+
+- (void)leaveThread:(CHThread*)thread block:(DidLeaveConversationThread)block {
+    NSString* url =  [NSString stringWithFormat:@"/conversation/%@/leave", thread.publicID];
+    [CHAPI post:url params:nil block:^(id data, NSError *error) {
+    }];
+}
+
+
 
 @end
