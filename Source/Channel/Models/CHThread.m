@@ -7,6 +7,7 @@
 //
 
 #import "CHThread.h"
+#import "CHMessage.h"
 
 @implementation CHThread
 

@@ -21,21 +21,21 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		6E063A181E92170600267001 /* CHApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E063A161E92170600267001 /* CHApplication.h */; };
+		6E063A181E92170600267001 /* CHApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E063A161E92170600267001 /* CHApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E063A191E92170600267001 /* CHApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E063A171E92170600267001 /* CHApplication.m */; };
-		6E063A1C1E92173200267001 /* CHAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E063A1A1E92173200267001 /* CHAgent.h */; };
+		6E063A1C1E92173200267001 /* CHAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E063A1A1E92173200267001 /* CHAgent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E063A1D1E92173200267001 /* CHAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E063A1B1E92173200267001 /* CHAgent.m */; };
-		6E063A201E922DC100267001 /* CHCircularImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E063A1E1E922DC100267001 /* CHCircularImageView.h */; };
+		6E063A201E922DC100267001 /* CHCircularImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E063A1E1E922DC100267001 /* CHCircularImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E063A211E922DC100267001 /* CHCircularImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E063A1F1E922DC100267001 /* CHCircularImageView.m */; };
-		6E063A241E922E5C00267001 /* CHAgentListCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E063A221E922E5C00267001 /* CHAgentListCollectionViewController.h */; };
+		6E063A241E922E5C00267001 /* CHAgentListCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E063A221E922E5C00267001 /* CHAgentListCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E063A251E922E5C00267001 /* CHAgentListCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E063A231E922E5C00267001 /* CHAgentListCollectionViewController.m */; };
-		6E063A281E922E6B00267001 /* CHAgentCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E063A261E922E6B00267001 /* CHAgentCollectionViewCell.h */; };
+		6E063A281E922E6B00267001 /* CHAgentCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E063A261E922E6B00267001 /* CHAgentCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E063A291E922E6B00267001 /* CHAgentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E063A271E922E6B00267001 /* CHAgentCollectionViewCell.m */; };
 		6E0D7FB81F592D5F006986D7 /* CHTopic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E0D7FB61F592D5F006986D7 /* CHTopic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E0D7FB91F592D5F006986D7 /* CHTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0D7FB71F592D5F006986D7 /* CHTopic.m */; };
-		6E0D7FBA1F5BA725006986D7 /* CHCardTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3C54221E73D68A00A89A2C /* CHCardTableViewCell.h */; };
-		6E0D7FBB1F5BA725006986D7 /* CHCardTypeImageTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3C54261E73D6EA00A89A2C /* CHCardTypeImageTableViewCell.h */; };
-		6E0D7FBC1F5BA725006986D7 /* CHCardWebViewTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E46B34E1E7F4F7500791839 /* CHCardWebViewTableViewCell.h */; };
+		6E0D7FBA1F5BA725006986D7 /* CHCardTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3C54221E73D68A00A89A2C /* CHCardTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E0D7FBB1F5BA725006986D7 /* CHCardTypeImageTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3C54261E73D6EA00A89A2C /* CHCardTypeImageTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E0D7FBC1F5BA725006986D7 /* CHCardWebViewTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E46B34E1E7F4F7500791839 /* CHCardWebViewTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E0D7FBD1F5BA725006986D7 /* CardTypeEnum.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3C54191E73B74800A89A2C /* CardTypeEnum.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E0D7FBE1F5BA725006986D7 /* CHCardPayloadBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3C541A1E73B7EB00A89A2C /* CHCardPayloadBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E0D7FBF1F5BA725006986D7 /* CHCardPayloadImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3C541E1E73B7F900A89A2C /* CHCardPayloadImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,15 +52,15 @@
 		6E1E7DF31E611AD600716BF4 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E7DF11E611AD600716BF4 /* TTTAttributedLabel.m */; };
 		6E26E94B1E21C30C00AA6C42 /* CHBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E26E9491E21C30C00AA6C42 /* CHBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E26E94C1E21C30C00AA6C42 /* CHBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E26E94A1E21C30C00AA6C42 /* CHBase.m */; };
-		6E26E94F1E21C31B00AA6C42 /* CHThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E26E94D1E21C31B00AA6C42 /* CHThread.h */; };
+		6E26E94F1E21C31B00AA6C42 /* CHThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E26E94D1E21C31B00AA6C42 /* CHThread.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E26E9501E21C31B00AA6C42 /* CHThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E26E94E1E21C31B00AA6C42 /* CHThread.m */; };
 		6E26E9531E21C34900AA6C42 /* CHMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E26E9511E21C34900AA6C42 /* CHMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E26E9541E21C34900AA6C42 /* CHMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E26E9521E21C34900AA6C42 /* CHMessage.m */; };
 		6E26E9571E21C57E00AA6C42 /* CHContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E26E9551E21C57E00AA6C42 /* CHContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E26E9581E21C57E00AA6C42 /* CHContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E26E9561E21C57E00AA6C42 /* CHContent.m */; };
-		6E26E95C1E21D1B100AA6C42 /* CHMessageTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E26E95A1E21D1B100AA6C42 /* CHMessageTableViewCell.h */; };
+		6E26E95C1E21D1B100AA6C42 /* CHMessageTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E26E95A1E21D1B100AA6C42 /* CHMessageTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E26E95D1E21D1B100AA6C42 /* CHMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E26E95B1E21D1B100AA6C42 /* CHMessageTableViewCell.m */; };
-		6E29FC411E4835A40046788B /* CHDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E29FC3F1E4835A40046788B /* CHDevice.h */; };
+		6E29FC411E4835A40046788B /* CHDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E29FC3F1E4835A40046788B /* CHDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E29FC421E4835A40046788B /* CHDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29FC401E4835A40046788B /* CHDevice.m */; };
 		6E29FC651E4839860046788B /* SystemServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E29FC451E4839860046788B /* SystemServices.h */; };
 		6E29FC661E4839860046788B /* SystemServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29FC461E4839860046788B /* SystemServices.m */; };
@@ -79,7 +79,7 @@
 		6E29FC731E4839860046788B /* SSDiskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29FC541E4839860046788B /* SSDiskInfo.m */; };
 		6E29FC741E4839860046788B /* SSHardwareInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E29FC551E4839860046788B /* SSHardwareInfo.h */; };
 		6E29FC751E4839860046788B /* SSHardwareInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29FC561E4839860046788B /* SSHardwareInfo.m */; };
-		6E29FC761E4839860046788B /* SSJailbreakCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E29FC571E4839860046788B /* SSJailbreakCheck.h */; };
+		6E29FC761E4839860046788B /* SSJailbreakCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E29FC571E4839860046788B /* SSJailbreakCheck.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E29FC771E4839860046788B /* SSJailbreakCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29FC581E4839860046788B /* SSJailbreakCheck.m */; };
 		6E29FC781E4839860046788B /* SSLocalizationInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E29FC591E4839860046788B /* SSLocalizationInfo.h */; };
 		6E29FC791E4839860046788B /* SSLocalizationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29FC5A1E4839860046788B /* SSLocalizationInfo.m */; };
@@ -95,13 +95,13 @@
 		6E29FC831E4839860046788B /* SSUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29FC641E4839860046788B /* SSUUID.m */; };
 		6E29FC861E485C8E0046788B /* NSDate+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E29FC841E485C8E0046788B /* NSDate+Utilities.h */; };
 		6E29FC871E485C8E0046788B /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29FC851E485C8E0046788B /* NSDate+Utilities.m */; };
-		6E29FC961E4899110046788B /* CHLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E29FC941E4899110046788B /* CHLabel.h */; };
+		6E29FC961E4899110046788B /* CHLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E29FC941E4899110046788B /* CHLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E29FC971E4899110046788B /* CHLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29FC951E4899110046788B /* CHLabel.m */; };
-		6E29FC9A1E4899220046788B /* CHView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E29FC981E4899220046788B /* CHView.h */; };
+		6E29FC9A1E4899220046788B /* CHView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E29FC981E4899220046788B /* CHView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E29FC9B1E4899220046788B /* CHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29FC991E4899220046788B /* CHView.m */; };
 		6E29FC9E1E489A9A0046788B /* CHButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E29FC9C1E489A9A0046788B /* CHButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E29FC9F1E489A9A0046788B /* CHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29FC9D1E489A9A0046788B /* CHButton.m */; };
-		6E2F70AD1E208D6B0027D8C6 /* CHInputBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E2F70AB1E208D6B0027D8C6 /* CHInputBar.h */; };
+		6E2F70AD1E208D6B0027D8C6 /* CHInputBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E2F70AB1E208D6B0027D8C6 /* CHInputBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E2F70AE1E208D6B0027D8C6 /* CHInputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2F70AC1E208D6B0027D8C6 /* CHInputBar.m */; };
 		6E32A4251E4A8BAB00F70F9F /* EventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E32A4231E4A8BAB00F70F9F /* EventSource.h */; };
 		6E32A4261E4A8BAB00F70F9F /* EventSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E32A4241E4A8BAB00F70F9F /* EventSource.m */; };
@@ -111,36 +111,36 @@
 		6E3C54211E73B7F900A89A2C /* CHCardPayloadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C541F1E73B7F900A89A2C /* CHCardPayloadImage.m */; };
 		6E3C54251E73D68A00A89A2C /* CHCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C54231E73D68A00A89A2C /* CHCardTableViewCell.m */; };
 		6E3C54291E73D6EA00A89A2C /* CHCardTypeImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C54271E73D6EA00A89A2C /* CHCardTypeImageTableViewCell.m */; };
-		6E3C542C1E73DD0D00A89A2C /* CHImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3C542A1E73DD0D00A89A2C /* CHImageView.h */; };
+		6E3C542C1E73DD0D00A89A2C /* CHImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3C542A1E73DD0D00A89A2C /* CHImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E3C542D1E73DD0D00A89A2C /* CHImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C542B1E73DD0D00A89A2C /* CHImageView.m */; };
-		6E3C54301E73DE9700A89A2C /* CHUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3C542E1E73DE9700A89A2C /* CHUtilities.h */; };
+		6E3C54301E73DE9700A89A2C /* CHUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3C542E1E73DE9700A89A2C /* CHUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E3C54311E73DE9700A89A2C /* CHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C542F1E73DE9700A89A2C /* CHUtilities.m */; };
 		6E3C54351E73F33800A89A2C /* UIImage+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3C54331E73F33800A89A2C /* UIImage+Utilities.h */; };
 		6E3C54361E73F33800A89A2C /* UIImage+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C54341E73F33800A89A2C /* UIImage+Utilities.m */; };
 		6E3C549C1E741E1C00A89A2C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3C549B1E741E1C00A89A2C /* ImageIO.framework */; };
-		6E3D61441E3A38FA00774E29 /* CHClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3D61421E3A38FA00774E29 /* CHClient.h */; };
+		6E3D61441E3A38FA00774E29 /* CHClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3D61421E3A38FA00774E29 /* CHClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E3D61451E3A38FA00774E29 /* CHClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D61431E3A38FA00774E29 /* CHClient.m */; };
-		6E3D61481E3A3F2300774E29 /* CHProfileImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3D61461E3A3F2300774E29 /* CHProfileImageView.h */; };
+		6E3D61481E3A3F2300774E29 /* CHProfileImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3D61461E3A3F2300774E29 /* CHProfileImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E3D61491E3A3F2300774E29 /* CHProfileImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D61471E3A3F2300774E29 /* CHProfileImageView.m */; };
 		6E46B3511E7F4F7500791839 /* CHCardWebViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E46B34F1E7F4F7500791839 /* CHCardWebViewTableViewCell.m */; };
-		6E46B3591E7F5B3700791839 /* CHWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E46B3571E7F5B3700791839 /* CHWebView.h */; };
+		6E46B3591E7F5B3700791839 /* CHWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E46B3571E7F5B3700791839 /* CHWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E46B35A1E7F5B3700791839 /* CHWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E46B3581E7F5B3700791839 /* CHWebView.m */; };
 		6E46B3621E7F834B00791839 /* CHCardPayloadTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E46B3601E7F834B00791839 /* CHCardPayloadTemplate.m */; };
-		6E492B611E4C7CE6001BC44C /* CHMessageLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E492B5F1E4C7CE6001BC44C /* CHMessageLabel.h */; };
+		6E492B611E4C7CE6001BC44C /* CHMessageLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E492B5F1E4C7CE6001BC44C /* CHMessageLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E492B621E4C7CE6001BC44C /* CHMessageLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E492B601E4C7CE6001BC44C /* CHMessageLabel.m */; };
 		6E4FD1CC1F8B992C007B64D5 /* CHBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E7692E31E3F6CCA00BCB896 /* CHBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E5027C51E069D4900A27517 /* Channel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5027C31E069D4900A27517 /* Channel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6E5027C61E069D4900A27517 /* CHConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5027C41E069D4900A27517 /* CHConfiguration.h */; };
+		6E5027C61E069D4900A27517 /* CHConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5027C41E069D4900A27517 /* CHConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E557D5E1E829424006666EA /* CHCardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E557D5C1E829424006666EA /* CHCardButton.m */; };
-		6E557D611E82B4FB006666EA /* CHButtonListToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E557D5F1E82B4FB006666EA /* CHButtonListToolbar.h */; };
+		6E557D611E82B4FB006666EA /* CHButtonListToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E557D5F1E82B4FB006666EA /* CHButtonListToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E557D621E82B4FB006666EA /* CHButtonListToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E557D601E82B4FB006666EA /* CHButtonListToolbar.m */; };
-		6E557D651E82B5C7006666EA /* CHBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E557D631E82B5C7006666EA /* CHBarButtonItem.h */; };
+		6E557D651E82B5C7006666EA /* CHBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E557D631E82B5C7006666EA /* CHBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E557D661E82B5C7006666EA /* CHBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E557D641E82B5C7006666EA /* CHBarButtonItem.m */; };
 		6E577A661EAAF03500ACE9E1 /* UIApplication+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E577A641EAAF03500ACE9E1 /* UIApplication+Extensions.h */; };
 		6E577A671EAAF03500ACE9E1 /* UIApplication+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E577A651EAAF03500ACE9E1 /* UIApplication+Extensions.m */; };
-		6E577A6A1EAAF48100ACE9E1 /* CHHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E577A681EAAF48100ACE9E1 /* CHHelper.h */; };
+		6E577A6A1EAAF48100ACE9E1 /* CHHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E577A681EAAF48100ACE9E1 /* CHHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E577A6B1EAAF48100ACE9E1 /* CHHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E577A691EAAF48100ACE9E1 /* CHHelper.m */; };
-		6E577A6E1EAAF5D600ACE9E1 /* UIApplicationDelegate+Channel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E577A6C1EAAF5D600ACE9E1 /* UIApplicationDelegate+Channel.h */; };
+		6E577A6E1EAAF5D600ACE9E1 /* UIApplicationDelegate+Channel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E577A6C1EAAF5D600ACE9E1 /* UIApplicationDelegate+Channel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E577A6F1EAAF5D600ACE9E1 /* UIApplicationDelegate+Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E577A6D1EAAF5D600ACE9E1 /* UIApplicationDelegate+Channel.m */; };
 		6E5A47F51E22446200064BEF /* UIViewController+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5A47F31E22446200064BEF /* UIViewController+Extension.h */; };
 		6E5A47F61E22446200064BEF /* UIViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A47F41E22446200064BEF /* UIViewController+Extension.m */; };
@@ -176,15 +176,15 @@
 		6E6D1C681E7AD666004DBB69 /* NSBundle+NYTPhotoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D1C4C1E7AD666004DBB69 /* NSBundle+NYTPhotoViewer.m */; };
 		6E6D1C6B1E7AD83D004DBB69 /* CHPhoto.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E6D1C691E7AD83D004DBB69 /* CHPhoto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E6D1C6C1E7AD83D004DBB69 /* CHPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D1C6A1E7AD83D004DBB69 /* CHPhoto.m */; };
-		6E7692E11E3F6A2600BCB896 /* CHAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E7692DF1E3F6A2600BCB896 /* CHAPI.h */; };
+		6E7692E11E3F6A2600BCB896 /* CHAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E7692DF1E3F6A2600BCB896 /* CHAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E7692E21E3F6A2600BCB896 /* CHAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7692E01E3F6A2600BCB896 /* CHAPI.m */; };
-		6E7692E61E3F6DE700BCB896 /* CHConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E7692E41E3F6DE700BCB896 /* CHConstants.h */; };
+		6E7692E61E3F6DE700BCB896 /* CHConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E7692E41E3F6DE700BCB896 /* CHConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E7692E71E3F6DE700BCB896 /* CHConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7692E51E3F6DE700BCB896 /* CHConstants.m */; };
 		6E7692F41E3F704D00BCB896 /* ChannelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7692F31E3F704D00BCB896 /* ChannelTests.m */; };
 		6E7692F61E3F704D00BCB896 /* Channel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA79D351E06271D00587733 /* Channel.framework */; };
-		6E8AE8EB1EAB44F200F40BAA /* ChannelUNUserNotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E8AE8E91EAB44F200F40BAA /* ChannelUNUserNotificationCenter.h */; };
+		6E8AE8EB1EAB44F200F40BAA /* ChannelUNUserNotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E8AE8E91EAB44F200F40BAA /* ChannelUNUserNotificationCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E8AE8EC1EAB44F200F40BAA /* ChannelUNUserNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8AE8EA1EAB44F200F40BAA /* ChannelUNUserNotificationCenter.m */; };
-		6E8E21501E1FCA4100556178 /* CHTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E8E214E1E1FCA4100556178 /* CHTableViewController.h */; };
+		6E8E21501E1FCA4100556178 /* CHTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E8E214E1E1FCA4100556178 /* CHTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E8E21511E1FCA4100556178 /* CHTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E214F1E1FCA4100556178 /* CHTableViewController.m */; };
 		6EA25BAE1E06B7DC0094BA6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EA25BAD1E06B7DC0094BA6E /* Assets.xcassets */; };
 		6EA25BB21E06BA420094BA6E /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EA25BB11E06BA420094BA6E /* Storyboard.storyboard */; };
@@ -192,16 +192,16 @@
 		6EA79D4B1E062B3500587733 /* CHConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79D491E062B3500587733 /* CHConfiguration.m */; };
 		6EB3CE361EA2EFB700D51066 /* CHNotificationPayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EB3CE341EA2EFB700D51066 /* CHNotificationPayload.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EB3CE371EA2EFB700D51066 /* CHNotificationPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3CE351EA2EFB700D51066 /* CHNotificationPayload.m */; };
-		6EB9448A1E85561C000E3CA5 /* CHHalfSizePresentationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EB944881E85561C000E3CA5 /* CHHalfSizePresentationController.h */; };
+		6EB9448A1E85561C000E3CA5 /* CHHalfSizePresentationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EB944881E85561C000E3CA5 /* CHHalfSizePresentationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EB9448B1E85561C000E3CA5 /* CHHalfSizePresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB944891E85561C000E3CA5 /* CHHalfSizePresentationController.m */; };
-		6EBDAB051E62AA5A008598C4 /* CHWebViewViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EBDAB031E62AA5A008598C4 /* CHWebViewViewController.h */; };
+		6EBDAB051E62AA5A008598C4 /* CHWebViewViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EBDAB031E62AA5A008598C4 /* CHWebViewViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EBDAB061E62AA5A008598C4 /* CHWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBDAB041E62AA5A008598C4 /* CHWebViewViewController.m */; };
 		6EC967F91E9CACB800E09E93 /* CHPostback.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EC967F71E9CACB800E09E93 /* CHPostback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EC967FA1E9CACB800E09E93 /* CHPostback.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC967F81E9CACB800E09E93 /* CHPostback.m */; };
 		6ED44DE31E7988D6001E83DE /* strip-frameworks.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6ED44DE21E7988D6001E83DE /* strip-frameworks.sh */; };
-		6EE153A81E06A47C00799956 /* CHTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE153A61E06A47C00799956 /* CHTextView.h */; };
+		6EE153A81E06A47C00799956 /* CHTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE153A61E06A47C00799956 /* CHTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EE153A91E06A47C00799956 /* CHTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE153A71E06A47C00799956 /* CHTextView.m */; };
-		6EE153D11E06A6A400799956 /* CHControllers.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE153CF1E06A6A400799956 /* CHControllers.h */; };
+		6EE153D11E06A6A400799956 /* CHControllers.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE153CF1E06A6A400799956 /* CHControllers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EE153D21E06A6A400799956 /* CHControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE153D01E06A6A400799956 /* CHControllers.m */; };
 		6EF176F71FCD0E580074D221 /* CHConversation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EF176F51FCD0E580074D221 /* CHConversation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EF176F81FCD0E580074D221 /* CHConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF176F61FCD0E580074D221 /* CHConversation.m */; };
@@ -209,9 +209,9 @@
 		6EF33C811FD015890024F88F /* CHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF33C7F1FD015890024F88F /* CHUser.m */; };
 		6EF90EC01E99D093003B4774 /* CHNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EF90EBE1E99D093003B4774 /* CHNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EF90EC11E99D093003B4774 /* CHNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF90EBF1E99D093003B4774 /* CHNotification.m */; };
-		6EF90EC41E99D16A003B4774 /* CHNotificationPresentationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EF90EC21E99D16A003B4774 /* CHNotificationPresentationController.h */; };
+		6EF90EC41E99D16A003B4774 /* CHNotificationPresentationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EF90EC21E99D16A003B4774 /* CHNotificationPresentationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EF90EC51E99D16A003B4774 /* CHNotificationPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF90EC31E99D16A003B4774 /* CHNotificationPresentationController.m */; };
-		6EF90EC81E99D2CD003B4774 /* CHNotificationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EF90EC61E99D2CD003B4774 /* CHNotificationViewController.h */; };
+		6EF90EC81E99D2CD003B4774 /* CHNotificationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EF90EC61E99D2CD003B4774 /* CHNotificationViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EF90EC91E99D2CD003B4774 /* CHNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF90EC71E99D2CD003B4774 /* CHNotificationViewController.m */; };
 		6EF90ECC1E99FF6F003B4774 /* CHNotificationButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EF90ECA1E99FF6F003B4774 /* CHNotificationButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EF90ECD1E99FF6F003B4774 /* CHNotificationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF90ECB1E99FF6F003B4774 /* CHNotificationButton.m */; };
@@ -839,87 +839,87 @@
 				6E0D7FB81F592D5F006986D7 /* CHTopic.h in Headers */,
 				6E4FD1CC1F8B992C007B64D5 /* CHBlock.h in Headers */,
 				6EC967F91E9CACB800E09E93 /* CHPostback.h in Headers */,
+				6E063A181E92170600267001 /* CHApplication.h in Headers */,
 				6EF33C801FD015890024F88F /* CHUser.h in Headers */,
+				6E3D61441E3A38FA00774E29 /* CHClient.h in Headers */,
 				6EF176F71FCD0E580074D221 /* CHConversation.h in Headers */,
 				6E26E94B1E21C30C00AA6C42 /* CHBase.h in Headers */,
 				6E0D7FCE1F5BAAF9006986D7 /* CHCardPayloadTemplate.h in Headers */,
 				6E11946D1E43620E0044E4D4 /* CHSender.h in Headers */,
-				6E5027C51E069D4900A27517 /* Channel.h in Headers */,
+				6E7692E61E3F6DE700BCB896 /* CHConstants.h in Headers */,
+				6E7692E11E3F6A2600BCB896 /* CHAPI.h in Headers */,
+				6E5027C61E069D4900A27517 /* CHConfiguration.h in Headers */,
 				6E0D7FBA1F5BA725006986D7 /* CHCardTableViewCell.h in Headers */,
 				6E0D7FBB1F5BA725006986D7 /* CHCardTypeImageTableViewCell.h in Headers */,
 				6E0D7FBC1F5BA725006986D7 /* CHCardWebViewTableViewCell.h in Headers */,
+				6E8E21501E1FCA4100556178 /* CHTableViewController.h in Headers */,
+				6E46B3591E7F5B3700791839 /* CHWebView.h in Headers */,
+				6EB9448A1E85561C000E3CA5 /* CHHalfSizePresentationController.h in Headers */,
+				6E557D651E82B5C7006666EA /* CHBarButtonItem.h in Headers */,
+				6E063A241E922E5C00267001 /* CHAgentListCollectionViewController.h in Headers */,
+				6E3C54301E73DE9700A89A2C /* CHUtilities.h in Headers */,
+				6EE153D11E06A6A400799956 /* CHControllers.h in Headers */,
+				6EE153A81E06A47C00799956 /* CHTextView.h in Headers */,
+				6E29FC961E4899110046788B /* CHLabel.h in Headers */,
+				6E577A6E1EAAF5D600ACE9E1 /* UIApplicationDelegate+Channel.h in Headers */,
+				6E577A6A1EAAF48100ACE9E1 /* CHHelper.h in Headers */,
+				6E063A281E922E6B00267001 /* CHAgentCollectionViewCell.h in Headers */,
+				6E8AE8EB1EAB44F200F40BAA /* ChannelUNUserNotificationCenter.h in Headers */,
+				6EBDAB051E62AA5A008598C4 /* CHWebViewViewController.h in Headers */,
+				6E063A201E922DC100267001 /* CHCircularImageView.h in Headers */,
+				6EF90EC81E99D2CD003B4774 /* CHNotificationViewController.h in Headers */,
+				6E29FC761E4839860046788B /* SSJailbreakCheck.h in Headers */,
+				6E29FC9A1E4899220046788B /* CHView.h in Headers */,
+				6E29FC411E4835A40046788B /* CHDevice.h in Headers */,
+				6E2F70AD1E208D6B0027D8C6 /* CHInputBar.h in Headers */,
+				6E557D611E82B4FB006666EA /* CHButtonListToolbar.h in Headers */,
+				6E3C542C1E73DD0D00A89A2C /* CHImageView.h in Headers */,
+				6E492B611E4C7CE6001BC44C /* CHMessageLabel.h in Headers */,
+				6EF90EC41E99D16A003B4774 /* CHNotificationPresentationController.h in Headers */,
+				6E3D61481E3A3F2300774E29 /* CHProfileImageView.h in Headers */,
+				6E26E95C1E21D1B100AA6C42 /* CHMessageTableViewCell.h in Headers */,
+				6E26E94F1E21C31B00AA6C42 /* CHThread.h in Headers */,
+				6E063A1C1E92173200267001 /* CHAgent.h in Headers */,
+				6E5027C51E069D4900A27517 /* Channel.h in Headers */,
 				6E29FC801E4839860046788B /* SSProcessorInfo.h in Headers */,
 				6E6D1C5F1E7AD666004DBB69 /* NYTPhotoViewer.h in Headers */,
 				6E1194751E4376700044E4D4 /* NSString+Utilities.h in Headers */,
-				6E8E21501E1FCA4100556178 /* CHTableViewController.h in Headers */,
-				6E46B3591E7F5B3700791839 /* CHWebView.h in Headers */,
 				6E29FC6E1E4839860046788B /* SSBatteryInfo.h in Headers */,
-				6EB9448A1E85561C000E3CA5 /* CHHalfSizePresentationController.h in Headers */,
-				6E063A1C1E92173200267001 /* CHAgent.h in Headers */,
-				6E7692E11E3F6A2600BCB896 /* CHAPI.h in Headers */,
 				6E6D1C631E7AD666004DBB69 /* NYTPhoto.h in Headers */,
 				6E6D1C641E7AD666004DBB69 /* NYTPhotoCaptionViewLayoutWidthHinting.h in Headers */,
 				6E5A47F91E22449600064BEF /* UITextView+Extensions.h in Headers */,
-				6E3D61441E3A38FA00774E29 /* CHClient.h in Headers */,
-				6E557D651E82B5C7006666EA /* CHBarButtonItem.h in Headers */,
-				6E063A241E922E5C00267001 /* CHAgentListCollectionViewController.h in Headers */,
 				6E6D1C581E7AD666004DBB69 /* NYTPhotoTransitionAnimator.h in Headers */,
 				6E5A47F51E22446200064BEF /* UIViewController+Extension.h in Headers */,
-				6E3C54301E73DE9700A89A2C /* CHUtilities.h in Headers */,
 				6E6D1C541E7AD666004DBB69 /* NYTPhotosOverlayView.h in Headers */,
 				6E1194731E4376700044E4D4 /* NSAttributedString+Category.h in Headers */,
-				6EE153D11E06A6A400799956 /* CHControllers.h in Headers */,
 				6E29FC7A1E4839860046788B /* SSMemoryInfo.h in Headers */,
 				6E29FC6C1E4839860046788B /* SSApplicationInfo.h in Headers */,
-				6EE153A81E06A47C00799956 /* CHTextView.h in Headers */,
-				6E5027C61E069D4900A27517 /* CHConfiguration.h in Headers */,
 				6E29FC701E4839860046788B /* SSCarrierInfo.h in Headers */,
 				6E29FC7E1E4839860046788B /* SSProcessInfo.h in Headers */,
 				6E29FC781E4839860046788B /* SSLocalizationInfo.h in Headers */,
 				6E6D1C5C1E7AD666004DBB69 /* NYTPhotoViewController.h in Headers */,
-				6E29FC961E4899110046788B /* CHLabel.h in Headers */,
-				6E063A181E92170600267001 /* CHApplication.h in Headers */,
 				6E29FC681E4839860046788B /* SSAccelerometerInfo.h in Headers */,
-				6E577A6E1EAAF5D600ACE9E1 /* UIApplicationDelegate+Channel.h in Headers */,
-				6E577A6A1EAAF48100ACE9E1 /* CHHelper.h in Headers */,
 				6E1E7DF21E611AD600716BF4 /* TTTAttributedLabel.h in Headers */,
 				6E6D1C5A1E7AD666004DBB69 /* NYTPhotoTransitionController.h in Headers */,
 				6E6D1C661E7AD666004DBB69 /* NYTPhotosViewControllerDataSource.h in Headers */,
-				6E063A281E922E6B00267001 /* CHAgentCollectionViewCell.h in Headers */,
-				6E8AE8EB1EAB44F200F40BAA /* ChannelUNUserNotificationCenter.h in Headers */,
-				6E26E94F1E21C31B00AA6C42 /* CHThread.h in Headers */,
-				6EBDAB051E62AA5A008598C4 /* CHWebViewViewController.h in Headers */,
 				6E6D1C561E7AD666004DBB69 /* NYTPhotosViewController.h in Headers */,
-				6E063A201E922DC100267001 /* CHCircularImageView.h in Headers */,
 				6E29FC671E4839860046788B /* route.h in Headers */,
-				6EF90EC81E99D2CD003B4774 /* CHNotificationViewController.h in Headers */,
 				6E6D1C521E7AD666004DBB69 /* NYTPhotosDataSource.h in Headers */,
 				6E3C54351E73F33800A89A2C /* UIImage+Utilities.h in Headers */,
-				6E29FC761E4839860046788B /* SSJailbreakCheck.h in Headers */,
-				6E7692E61E3F6DE700BCB896 /* CHConstants.h in Headers */,
 				6E6D1C4E1E7AD666004DBB69 /* NYTPhotoCaptionView.h in Headers */,
 				6E6D1C601E7AD666004DBB69 /* NYTPhotoViewerCore.h in Headers */,
 				6E32A4251E4A8BAB00F70F9F /* EventSource.h in Headers */,
 				6E577A661EAAF03500ACE9E1 /* UIApplication+Extensions.h in Headers */,
 				6E29FC741E4839860046788B /* SSHardwareInfo.h in Headers */,
-				6E29FC9A1E4899220046788B /* CHView.h in Headers */,
 				6E6D1C651E7AD666004DBB69 /* NYTPhotoContainer.h in Headers */,
 				6E29FC6A1E4839860046788B /* SSAccessoryInfo.h in Headers */,
 				6E29FC651E4839860046788B /* SystemServices.h in Headers */,
 				6E6D1C671E7AD666004DBB69 /* NSBundle+NYTPhotoViewer.h in Headers */,
-				6E29FC411E4835A40046788B /* CHDevice.h in Headers */,
-				6E2F70AD1E208D6B0027D8C6 /* CHInputBar.h in Headers */,
-				6E557D611E82B4FB006666EA /* CHButtonListToolbar.h in Headers */,
-				6E3C542C1E73DD0D00A89A2C /* CHImageView.h in Headers */,
 				6E6D1C611E7AD666004DBB69 /* NYTScalingImageView.h in Headers */,
 				6E6D1C501E7AD666004DBB69 /* NYTPhotoDismissalInteractionController.h in Headers */,
 				6E29FC861E485C8E0046788B /* NSDate+Utilities.h in Headers */,
 				6E29FC721E4839860046788B /* SSDiskInfo.h in Headers */,
-				6E492B611E4C7CE6001BC44C /* CHMessageLabel.h in Headers */,
-				6EF90EC41E99D16A003B4774 /* CHNotificationPresentationController.h in Headers */,
 				6E29FC7C1E4839860046788B /* SSNetworkInfo.h in Headers */,
-				6E3D61481E3A3F2300774E29 /* CHProfileImageView.h in Headers */,
-				6E26E95C1E21D1B100AA6C42 /* CHMessageTableViewCell.h in Headers */,
 				6E29FC821E4839860046788B /* SSUUID.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

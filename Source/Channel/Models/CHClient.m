@@ -13,6 +13,9 @@
 #import "CHConfiguration.h"
 #import "CHWebViewViewController.h"
 #import "SystemServices.h"
+#import "CHUser.h"
+#import "CHConversation.h"
+
 
 @interface CHClient()
 
@@ -500,7 +503,6 @@
         
         NSArray* messages = data[@"messages"];
         thread.nextMessagesURL = data[@"next"];
-       NSMutableArray* list = [NSMutableArray new];
         for (NSDictionary* m in messages){
             CHMessage* message = [[CHMessage alloc]initWithJSON:m];
             [thread addMessage:message];

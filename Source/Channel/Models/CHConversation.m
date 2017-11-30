@@ -7,6 +7,9 @@
 //
 
 #import "CHConversation.h"
+#import "CHThread.h"
+#import "CHMessage.h"
+#import "CHUser.h"
 
 @implementation CHConversation
 
