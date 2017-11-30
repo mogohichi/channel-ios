@@ -203,6 +203,10 @@
 		6EE153A91E06A47C00799956 /* CHTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE153A71E06A47C00799956 /* CHTextView.m */; };
 		6EE153D11E06A6A400799956 /* CHControllers.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE153CF1E06A6A400799956 /* CHControllers.h */; };
 		6EE153D21E06A6A400799956 /* CHControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE153D01E06A6A400799956 /* CHControllers.m */; };
+		6EF176F71FCD0E580074D221 /* CHConversation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EF176F51FCD0E580074D221 /* CHConversation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6EF176F81FCD0E580074D221 /* CHConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF176F61FCD0E580074D221 /* CHConversation.m */; };
+		6EF33C801FD015890024F88F /* CHUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EF33C7E1FD015890024F88F /* CHUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6EF33C811FD015890024F88F /* CHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF33C7F1FD015890024F88F /* CHUser.m */; };
 		6EF90EC01E99D093003B4774 /* CHNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EF90EBE1E99D093003B4774 /* CHNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EF90EC11E99D093003B4774 /* CHNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF90EBF1E99D093003B4774 /* CHNotification.m */; };
 		6EF90EC41E99D16A003B4774 /* CHNotificationPresentationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EF90EC21E99D16A003B4774 /* CHNotificationPresentationController.h */; };
@@ -422,6 +426,10 @@
 		6EE153A71E06A47C00799956 /* CHTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTextView.m; sourceTree = "<group>"; };
 		6EE153CF1E06A6A400799956 /* CHControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHControllers.h; sourceTree = "<group>"; };
 		6EE153D01E06A6A400799956 /* CHControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHControllers.m; sourceTree = "<group>"; };
+		6EF176F51FCD0E580074D221 /* CHConversation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHConversation.h; sourceTree = "<group>"; };
+		6EF176F61FCD0E580074D221 /* CHConversation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHConversation.m; sourceTree = "<group>"; };
+		6EF33C7E1FD015890024F88F /* CHUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHUser.h; sourceTree = "<group>"; };
+		6EF33C7F1FD015890024F88F /* CHUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHUser.m; sourceTree = "<group>"; };
 		6EF90EBE1E99D093003B4774 /* CHNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNotification.h; sourceTree = "<group>"; };
 		6EF90EBF1E99D093003B4774 /* CHNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNotification.m; sourceTree = "<group>"; };
 		6EF90EC21E99D16A003B4774 /* CHNotificationPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNotificationPresentationController.h; sourceTree = "<group>"; };
@@ -504,6 +512,10 @@
 				6EB3CE351EA2EFB700D51066 /* CHNotificationPayload.m */,
 				6E0D7FB61F592D5F006986D7 /* CHTopic.h */,
 				6E0D7FB71F592D5F006986D7 /* CHTopic.m */,
+				6EF176F51FCD0E580074D221 /* CHConversation.h */,
+				6EF176F61FCD0E580074D221 /* CHConversation.m */,
+				6EF33C7E1FD015890024F88F /* CHUser.h */,
+				6EF33C7F1FD015890024F88F /* CHUser.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -827,6 +839,8 @@
 				6E0D7FB81F592D5F006986D7 /* CHTopic.h in Headers */,
 				6E4FD1CC1F8B992C007B64D5 /* CHBlock.h in Headers */,
 				6EC967F91E9CACB800E09E93 /* CHPostback.h in Headers */,
+				6EF33C801FD015890024F88F /* CHUser.h in Headers */,
+				6EF176F71FCD0E580074D221 /* CHConversation.h in Headers */,
 				6E26E94B1E21C30C00AA6C42 /* CHBase.h in Headers */,
 				6E0D7FCE1F5BAAF9006986D7 /* CHCardPayloadTemplate.h in Headers */,
 				6E11946D1E43620E0044E4D4 /* CHSender.h in Headers */,
@@ -971,7 +985,7 @@
 					6EA79D341E06271D00587733 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 7KJSTSE6Z7;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1059,6 +1073,7 @@
 				6E8E21511E1FCA4100556178 /* CHTableViewController.m in Sources */,
 				6E29FC731E4839860046788B /* SSDiskInfo.m in Sources */,
 				6E3C54311E73DE9700A89A2C /* CHUtilities.m in Sources */,
+				6EF33C811FD015890024F88F /* CHUser.m in Sources */,
 				6E6D1C591E7AD666004DBB69 /* NYTPhotoTransitionAnimator.m in Sources */,
 				6E29FC971E4899110046788B /* CHLabel.m in Sources */,
 				6E492B621E4C7CE6001BC44C /* CHMessageLabel.m in Sources */,
@@ -1081,6 +1096,7 @@
 				6E26E9581E21C57E00AA6C42 /* CHContent.m in Sources */,
 				6E29FC811E4839860046788B /* SSProcessorInfo.m in Sources */,
 				6E063A291E922E6B00267001 /* CHAgentCollectionViewCell.m in Sources */,
+				6EF176F81FCD0E580074D221 /* CHConversation.m in Sources */,
 				6E29FC6F1E4839860046788B /* SSBatteryInfo.m in Sources */,
 				6E26E94C1E21C30C00AA6C42 /* CHBase.m in Sources */,
 				6E6D1C681E7AD666004DBB69 /* NSBundle+NYTPhotoViewer.m in Sources */,

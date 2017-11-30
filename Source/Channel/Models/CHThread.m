@@ -19,6 +19,16 @@
     return self;
 }
 
+- (instancetype)initWithJSON:(NSDictionary *)json {
+    self = [super init];
+    if (self) {
+        _publicID = json[@"ID"];
+        _threadOwnerClientID = json[@"clientID"];
+        self.nextMessagesURL = json[@"next"];
+    }
+    return self;
+}
+
 - (void)callDelegate:(CHMessage*)message{
     if ([self.delegate respondsToSelector:@selector(didAddMessage:)]){
         [self.delegate didAddMessage:message];

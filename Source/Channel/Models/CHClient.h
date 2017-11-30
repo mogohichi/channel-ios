@@ -14,8 +14,10 @@
 #import "CHApplication.h"
 #import "CHAgent.h"
 #import "CHTopic.h"
+#import "CHConversation.h"
 
 @class CHClient;
+@class CHConversation;
 
 @protocol CHClientDelegate <NSObject>
 
@@ -36,6 +38,14 @@ typedef void (^DidCheckNotification) (CHNotification* notification, NSError* err
 typedef void (^DidLoadSubscribedTopics) (NSArray<CHTopic*>* topics, NSError* error);
 typedef void (^DidSubscribeToTopic) (CHTopic* topics, NSError* error);
 typedef void (^DidUnsubscribeFromTopic) (CHTopic* topics, NSError* error);
+
+typedef void (^DidSearchUser) (CHUser* user, NSError* error);
+typedef void (^DidLoadConversations) (NSArray<CHConversation*>* conversations, NSError* error);
+typedef void (^DidLoadConversationThread) (CHThread* thread, NSError* error);
+typedef void (^DidStartConversationThread) (CHThread* thread, NSError* error);
+typedef void (^DidJoinConversationThread) (NSError* error);
+typedef void (^DidLeaveConversationThread) (NSError* error);
+
 
 @interface CHClient : CHBase
 
@@ -91,5 +101,15 @@ typedef void (^DidUnsubscribeFromTopic) (CHTopic* topics, NSError* error);
 - (void)unsubscribeFromTopic:(NSString*)topic block:(DidUnsubscribeFromTopic)block;
 
 - (void)subscribedTopicsWithBlock:(DidLoadSubscribedTopics)block;
+
+
+//New APIs added for User <--> User communication
+- (void)searchUserByID:(NSString*)query block:(DidSearchUser)block;
+- (void)conversations:(DidLoadConversations)block;
+- (void)sendMessage:(CHMessage*)message thread:(CHThread*)thread block:(DidSendMessage)block;
+- (void)startConversation:(NSArray<CHUser*>*)users block:(DidStartConversationThread)block;
+- (void)loadConversationThread:(CHThread*)thread block:(DidLoadConversationThread)block;
+- (void)joinThread:(CHThread*)thread block:(DidJoinConversationThread)block;
+- (void)leaveThread:(CHThread*)thread block:(DidLeaveConversationThread)block;
 
 @end
