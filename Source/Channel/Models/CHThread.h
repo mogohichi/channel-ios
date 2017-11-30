@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "CHBase.h"
-#import "CHMessage.h"
 
+@class CHMessage;
 
 @protocol CHThreadDelegate <NSObject>
 

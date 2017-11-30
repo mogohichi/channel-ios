@@ -7,9 +7,10 @@
 //
 
 #import "CHBase.h"
-#import "CHThread.h"
-#import "CHMessage.h"
-#import "CHUser.h"
+
+@class CHThread;
+@class CHMessage;
+@class CHUser;
 
 @interface CHConversation : CHBase
 

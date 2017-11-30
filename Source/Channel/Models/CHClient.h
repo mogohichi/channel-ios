@@ -15,6 +15,7 @@
 #import "CHAgent.h"
 #import "CHTopic.h"
 #import "CHConversation.h"
+#import "CHUser.h"
 
 @class CHClient;
 @class CHConversation;
@@ -111,5 +112,6 @@ typedef void (^DidLeaveConversationThread) (NSError* error);
 - (void)loadConversationThread:(CHThread*)thread block:(DidLoadConversationThread)block;
 - (void)joinThread:(CHThread*)thread block:(DidJoinConversationThread)block;
 - (void)leaveThread:(CHThread*)thread block:(DidLeaveConversationThread)block;
+- (void)subscribeToThreadUpdate:(CHThread)thread;
 
 @end
