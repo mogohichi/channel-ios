@@ -533,5 +533,44 @@
 }
 
 
+- (void)subscribeToThreadUpdate:(CHThread)thread {
+    //avoid double connection
+    if (self.source != nil) {
+        return;
+    }
+    NSURL *serverURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/subscribe?threadID=%@",kChannel_Base_API, thread.publicID]];
+    self.source = [EventSource eventSourceWithURL:serverURL];
+    [self.source onMessage:^(Event *e) {
+        //we watch only for the message event
+        if (![e.event isEqualToString:@""]){
+            NSData* data = [e.data dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary* obj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            CHMessage* message = [[CHMessage alloc]initWithJSON:obj];
+            //always notify the observers
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kDidReceiveRealtimeMessage" object:nil userInfo:@{@"message":message}];
+            if ([self.delegate respondsToSelector:@selector(client:messageFromServer:)]){
+                [self.delegate client:self messageFromServer:message];
+            }
+            
+            return;
+        }
+    }];
+    
+    [self.source addEventListener:@"typing" handler:^(Event *event) {
+        
+    }];
+    [self.source addEventListener:@"message" handler:^(Event *event) {
+        
+    }];
+    
+    [self.source onError:^(Event *event) {
+        
+    }];
+    
+    [self.source onOpen:^(Event *event) {
+        
+    }];
+}
+
 
 @end
