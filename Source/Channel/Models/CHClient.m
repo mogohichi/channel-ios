@@ -533,7 +533,7 @@
 }
 
 
-- (void)subscribeToThreadUpdate:(CHThread)thread {
+- (void)subscribeToThreadUpdate:(CHThread*)thread {
     //avoid double connection
     if (self.source != nil) {
         return;
