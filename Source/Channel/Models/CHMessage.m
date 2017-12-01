@@ -39,10 +39,25 @@
     if (self) {
         
         NSString* dateString = json[@"createdAt"];
-        self.isFromBusiness = [json[@"isFromBusiness"] boolValue];
-        self.createdAt =  [dateString toNSDate];
-        self.content = [[CHContent alloc]initWithJSON:json[@"data"]];
-        self.sender = [[CHSender alloc]initWithJSON:json[@"sender"]];
+        if (dateString != nil) {
+            self.createdAt =  [dateString toNSDate];
+        }
+        
+        if (json[@"id"] != nil) {
+            self.publicID = json[@"id"];
+        }
+        
+        if (json[@"isFromBusiness"] != nil) {
+            self.isFromBusiness = [json[@"isFromBusiness"] boolValue];
+        }
+        
+        if (json[@"data"] != nil && ![json[@"data"] isEqual:(id)[NSNull null]]) {
+            self.content = [[CHContent alloc]initWithJSON:json[@"data"]];
+        }
+        if (json[@"sender"] != nil && ![json[@"sender"] isEqual:(id)[NSNull null]]) {
+            self.sender = [[CHSender alloc]initWithJSON:json[@"sender"]];
+        }
+        
     }
     return self;
 }
@@ -63,17 +78,32 @@
         return @{@"card":[self.content.card toJSON]};
     }
     
-    
     NSMutableDictionary* json = [[NSMutableDictionary alloc]init];
     if (self.content.text != nil){
         json[@"text"] = self.content.text;
     }
     
     if (self.content.postback != nil) {
-         json[@"postback"] = [self.content.postback toJSON];
+        json[@"postback"] = [self.content.postback toJSON];
     }
     
     return json;
+}
+
+- (NSData*)toData {
+    NSMutableDictionary* json = [[NSMutableDictionary alloc]init];
+    if (self.sender != nil){
+        json[@"sender"] = [self.sender toJSON];
+    }
+    
+    if (self.content != nil) {
+        json[@"data"] = [self.content toJSON];
+    }
+    
+    NSError* dataError = nil;
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:json options:0 error:&dataError];
+    
+    return postData;
 }
 
 @end

@@ -30,6 +30,14 @@
     return self;
 }
 
+- (instancetype _Nullable )initWithThreadID:(NSString* _Nonnull)threadID {
+    self = [super init];
+    if (self) {
+        _publicID = threadID;
+    }
+    return self;
+}
+
 - (void)callDelegate:(CHMessage*)message{
     if ([self.delegate respondsToSelector:@selector(didAddMessage:)]){
         [self.delegate didAddMessage:message];

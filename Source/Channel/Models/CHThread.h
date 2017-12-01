@@ -28,6 +28,7 @@
 @property (nonatomic, nullable, readonly) NSString* threadOwnerClientID;
 
 - (instancetype _Nullable )initWithJSON:(NSDictionary*_Nullable)json;
+- (instancetype _Nullable )initWithThreadID:(NSString* _Nonnull)threadID;
 
 - (void)addText:(NSString* _Nonnull)text;
 - (void)addMessage:(CHMessage* _Nonnull)message;

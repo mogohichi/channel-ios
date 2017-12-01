@@ -70,4 +70,22 @@
     return self;
 }
 
+
+- (NSDictionary*)toJSON{
+    NSMutableDictionary* json = [[NSMutableDictionary alloc]init];
+    if (self.text != nil){
+        json[@"text"] = self.text;
+    }
+    
+    if (self.postback != nil) {
+        json[@"postback"] = [self.postback toJSON];
+    }
+    
+    if (self.card != nil) {
+        json[@"card"] = [self.card toJSON];
+    }
+    
+    return json;
+}
+
 @end

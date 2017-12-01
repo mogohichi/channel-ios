@@ -503,6 +503,7 @@
         
         NSArray* messages = data[@"messages"];
         thread.nextMessagesURL = data[@"next"];
+        thread.messages = [[NSMutableArray alloc]init];
         for (NSDictionary* m in messages){
             CHMessage* message = [[CHMessage alloc]initWithJSON:m];
             [thread addMessage:message];

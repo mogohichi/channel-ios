@@ -10,10 +10,12 @@
 
 @interface CHSender : NSObject
 
+@property (nonatomic, strong) NSString* publicID;
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* imageUrl;
 
 
 - (instancetype)initWithJSON:(NSDictionary*)json;
+- (NSDictionary*)toJSON;
 
 @end

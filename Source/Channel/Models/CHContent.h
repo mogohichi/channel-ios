@@ -24,4 +24,6 @@
 - (instancetype _Nonnull)initWithCard:(CHCard* _Nonnull)card;
 - (instancetype _Nonnull)initWithText:(NSString* _Nonnull)text postbackPayload:(NSString* _Nonnull)payload;
 
+- (NSDictionary*)toJSON;
+
 @end
