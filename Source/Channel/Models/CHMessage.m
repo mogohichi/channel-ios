@@ -100,6 +100,13 @@
         json[@"data"] = [self.content toJSON];
     }
     
+    
+    if (self.createdAt != nil) {
+        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc]init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"];
+        json[@"createdAt"] = [dateFormatter stringFromDate:self.createdAt];
+    }
+    
     NSError* dataError = nil;
     NSData *postData = [NSJSONSerialization dataWithJSONObject:json options:0 error:&dataError];
     
