@@ -19,6 +19,7 @@
 
 @class CHClient;
 @class CHConversation;
+@class CHSender;
 
 @protocol CHClientDelegate <NSObject>
 
@@ -54,6 +55,7 @@ typedef void (^DidLeaveConversationThread) (NSError* error);
 @property (nonatomic, strong) NSString* userID;
 @property (nonatomic, strong) NSDictionary* userData;
 @property (nonatomic) id<CHClientDelegate> delegate;
+@property (nonatomic, readonly) CHSender* asSender;
 
 +(void)connectClientwithUserID:(NSString*)userID userData:(NSDictionary*)userData block:(DidConnectClient)block;
 + (void)connectClient:(DidConnectClient)block;

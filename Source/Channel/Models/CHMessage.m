@@ -16,15 +16,26 @@
 {
     self = [super init];
     if (self) {
-        self.clientObjectID = [[NSUUID UUID] UUIDString];
+        self.localStorageObjectID = [[NSUUID UUID] UUIDString];
         self.content = [[CHContent alloc]initWithText:text];
     }
     return self;
 }
+
+- (instancetype)initWithText:(NSString*)text sender:(CHSender*)sender {
+    self = [super init];
+    if (self) {
+        self.localStorageObjectID = [[NSUUID UUID] UUIDString];
+        self.content = [[CHContent alloc]initWithText:text];
+        self.sender = sender;
+    }
+    return self;
+}
+
 - (instancetype)initWithImageURL:(NSURL*)imageURL{
     self = [super init];
     if (self) {
-        self.clientObjectID = [[NSUUID UUID] UUIDString];
+        self.localStorageObjectID = [[NSUUID UUID] UUIDString];
         CHCard* card = [[CHCard alloc]init];
         card.type = CardTypeImage;
         card.payload = [[CHCardPayloadImage alloc]initWithImageURL:imageURL];
@@ -53,6 +64,9 @@
         
         if (json[@"data"] != nil && ![json[@"data"] isEqual:(id)[NSNull null]]) {
             self.content = [[CHContent alloc]initWithJSON:json[@"data"]];
+            if (json[@"data"][@"localStorageObjectID"] != nil) {
+                self.localStorageObjectID = json[@"data"][@"localStorageObjectID"];
+            }
         }
         if (json[@"sender"] != nil && ![json[@"sender"] isEqual:(id)[NSNull null]]) {
             self.sender = [[CHSender alloc]initWithJSON:json[@"sender"]];
@@ -66,7 +80,7 @@
 - (instancetype)initWithText:(NSString*)text postbackPayload:(NSString*)payload{
     self = [super init];
     if (self) {
-        self.clientObjectID = [[NSUUID UUID] UUIDString];
+        self.localStorageObjectID = [[NSUUID UUID] UUIDString];
         self.content = [[CHContent alloc]initWithText:text postbackPayload:payload];
     }
     return self;
@@ -81,6 +95,10 @@
     NSMutableDictionary* json = [[NSMutableDictionary alloc]init];
     if (self.content.text != nil){
         json[@"text"] = self.content.text;
+    }
+    
+    if (self.localStorageObjectID != nil){
+        json[@"localStorageObjectID"] = self.localStorageObjectID;
     }
     
     if (self.content.postback != nil) {
@@ -100,6 +118,9 @@
         json[@"data"] = [self.content toJSON];
     }
     
+    if (self.localStorageObjectID != nil){
+        json[@"localStorageObjectID"] = self.localStorageObjectID;
+    }
     
     if (self.createdAt != nil) {
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc]init];

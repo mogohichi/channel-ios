@@ -20,7 +20,7 @@
 @interface CHClient()
 
 @property (nonatomic) EventSource *source;
-
+@property (nonatomic) NSString* currentSubscribedURL;
 @end
 
 @implementation CHClient
@@ -50,6 +50,12 @@
         shared = [self new];
     });
     return shared;
+}
+
+-(CHSender *)asSender{
+    CHSender* sender = [[CHSender alloc]init];
+    sender.publicID = self.clientID;
+    return sender;
 }
 
 -(void)applicationInfo:(DidGetApplicationInfo)block{
@@ -140,6 +146,7 @@
     NSMutableDictionary* data = [[NSMutableDictionary alloc]initWithDictionary:[message toJSON]];
     [params setValue:data forKey:@"data"];
     [CHAPI post:@"/thread/messages" params:params block:^(id data, NSError *error) {
+        
     }];
 }
 
@@ -518,6 +525,7 @@
     NSMutableDictionary* data = [[NSMutableDictionary alloc]initWithDictionary:[message toJSON]];
     [params setValue:data forKey:@"data"];
     [CHAPI post:url params:params block:^(id data, NSError *error) {
+        block(thread, message, error);
     }];
 }
 
@@ -535,11 +543,16 @@
 
 
 - (void)subscribeToThreadUpdate:(CHThread*)thread {
+    NSURL *serverURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/subscribe?threadID=%@",kChannel_Base_API, thread.publicID]];
+    if (self.currentSubscribedURL != nil && ![self.currentSubscribedURL isEqualToString:serverURL.absoluteString]) {
+        [self.source close];
+        self.source = nil;
+    }
     //avoid double connection
     if (self.source != nil) {
         return;
     }
-    NSURL *serverURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/subscribe?threadID=%@",kChannel_Base_API, thread.publicID]];
+    self.currentSubscribedURL = serverURL.absoluteString;
     self.source = [EventSource eventSourceWithURL:serverURL];
     [self.source onMessage:^(Event *e) {
         //we watch only for the message event

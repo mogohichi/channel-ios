@@ -27,6 +27,11 @@
 
 @implementation Channel : NSObject
 
+
++ (CHClient* _Nonnull)currentClient {
+    return [CHClient currentClient];
+}
+
 +(Channel *)shared{
     static Channel *shared;
     static dispatch_once_t onceToken;

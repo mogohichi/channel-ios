@@ -14,7 +14,7 @@
 
 @interface CHMessage : NSObject
 
-@property (nonatomic) NSString* clientObjectID;
+@property (nonatomic) NSString* localStorageObjectID;
 @property (nonatomic) NSString* publicID;
 @property (nonatomic) NSDate* createdAt;
 @property (nonatomic) Boolean isFromBusiness;
@@ -25,6 +25,7 @@
 
 - (instancetype)initWithJSON:(NSDictionary*)json;
 - (instancetype)initWithText:(NSString*)text;
+- (instancetype)initWithText:(NSString*)text sender:(CHSender*)sender;
 - (instancetype)initWithText:(NSString*)text postbackPayload:(NSString*)payload;
 - (instancetype)initWithImageURL:(NSURL*)imageURL;
 - (NSDictionary*)toJSON;

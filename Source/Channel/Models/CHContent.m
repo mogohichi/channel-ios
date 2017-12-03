@@ -38,6 +38,7 @@
         if (json[@"text"] != nil) {
             self.text = json[@"text"];
         }
+        
         if (json[@"topic"] != nil) {
             self.topic = [[CHTopic alloc]init];
             self.topic.name = json[@"topic"];

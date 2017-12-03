@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Channel/Models/CHClient.m"
-            timestampString = "533809982.829431"
+            timestampString = "533986425.396659"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "411"
-            endingLineNumber = "411"
+            startingLineNumber = "418"
+            endingLineNumber = "418"
             landmarkName = "-unsubscribeFromTopic:block:"
             landmarkType = "7">
          </BreakpointContent>
