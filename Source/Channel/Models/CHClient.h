@@ -44,10 +44,10 @@ typedef void (^DidUnsubscribeFromTopic) (CHTopic* topics, NSError* error);
 typedef void (^DidSearchUser) (CHUser* user, NSError* error);
 typedef void (^DidLoadConversations) (NSArray<CHConversation*>* conversations, NSError* error);
 typedef void (^DidLoadConversationThread) (CHThread* thread, NSError* error);
-typedef void (^DidStartConversationThread) (CHThread* thread, NSError* error);
+typedef void (^DidStartConversationThread) (CHConversation* conversation, NSError* error);
 typedef void (^DidJoinConversationThread) (NSError* error);
 typedef void (^DidLeaveConversationThread) (NSError* error);
-
+typedef void (^DidInviteToConversation) (CHConversation* conversation, NSError* error);
 
 @interface CHClient : CHBase
 
@@ -114,6 +114,7 @@ typedef void (^DidLeaveConversationThread) (NSError* error);
 - (void)loadConversationThread:(CHThread*)thread block:(DidLoadConversationThread)block;
 - (void)joinThread:(CHThread*)thread block:(DidJoinConversationThread)block;
 - (void)leaveThread:(CHThread*)thread block:(DidLeaveConversationThread)block;
+- (void)inviteUsers:(NSArray<CHUser*>*)users thread:(CHThread*)thread block:(DidInviteToConversation)block;
 - (void)subscribeToThreadUpdate:(CHThread*)thread;
 
 @end

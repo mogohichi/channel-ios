@@ -494,7 +494,7 @@
             return;
         }
         NSDictionary* json = data;
-        CHThread* obj = [[CHThread alloc]initWithJSON:json];
+        CHConversation* obj = [[CHConversation alloc]initWithJSON:json];
         block(obj,nil);
         
     }];
@@ -584,6 +584,27 @@
     [self.source onOpen:^(Event *event) {
         
     }];
+}
+
+- (void)inviteUsers:(NSArray<CHUser*>*)users thread:(CHThread*)thread block:(DidInviteToConversation)block {
+    NSString* url = [NSString stringWithFormat:@"/conversation/%@", thread.publicID];
+    NSMutableDictionary* params = [[NSMutableDictionary alloc]init];
+    NSMutableArray* clientList = [[NSMutableArray alloc]init];
+    for (CHUser* u in users) {
+        [clientList addObject:u.publicID];
+    }
+    [params setValue:clientList forKey:@"clients"];
+    [CHAPI post:url params:params block:^(id data, NSError *error) {
+        if (error != nil) {
+            block(nil,error);
+            return;
+        }
+        NSDictionary* json = data;
+        CHConversation* obj = [[CHConversation alloc]initWithJSON:json];
+        block(obj,nil);
+        
+    }];
+    
 }
 
 
