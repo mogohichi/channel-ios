@@ -587,7 +587,7 @@
 }
 
 - (void)inviteUsers:(NSArray<CHUser*>*)users thread:(CHThread*)thread block:(DidInviteToConversation)block {
-    NSString* url = [NSString stringWithFormat:@"/conversation/%@", thread.publicID];
+    NSString* url = [NSString stringWithFormat:@"/conversations/%@", thread.publicID];
     NSMutableDictionary* params = [[NSMutableDictionary alloc]init];
     NSMutableArray* clientList = [[NSMutableArray alloc]init];
     for (CHUser* u in users) {
@@ -599,9 +599,9 @@
             block(nil,error);
             return;
         }
-        NSDictionary* json = data;
-        CHConversation* obj = [[CHConversation alloc]initWithJSON:json];
-        block(obj,nil);
+        //NSDictionary* json = data;
+        //CHConversation* obj = [[CHConversation alloc]initWithJSON:json];
+        block(nil,nil);
         
     }];
     
