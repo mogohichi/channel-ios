@@ -20,6 +20,7 @@
 @property (nonatomic) Boolean isFromBusiness;
 @property (nonatomic) CHContent* content;
 @property (nonatomic) CHSender* sender;
+@property (nonatomic) NSMutableDictionary* data;
 
 @property (nonatomic) BOOL isFromClient;
 

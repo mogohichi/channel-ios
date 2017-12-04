@@ -11,13 +11,21 @@
 #import "CHCardPayloadImage.h"
 #import "CHCardButton.h"
 @implementation CHMessage
-
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.data = [[NSMutableDictionary alloc]init];
+    }
+    return self;
+}
 - (instancetype)initWithText:(NSString*)text;
 {
     self = [super init];
     if (self) {
         self.localStorageObjectID = [[NSUUID UUID] UUIDString];
         self.content = [[CHContent alloc]initWithText:text];
+        self.data = [[NSMutableDictionary alloc]init];
     }
     return self;
 }
@@ -28,6 +36,7 @@
         self.localStorageObjectID = [[NSUUID UUID] UUIDString];
         self.content = [[CHContent alloc]initWithText:text];
         self.sender = sender;
+        self.data = [[NSMutableDictionary alloc]init];
     }
     return self;
 }
@@ -40,6 +49,7 @@
         card.type = CardTypeImage;
         card.payload = [[CHCardPayloadImage alloc]initWithImageURL:imageURL];
         self.content = [[CHContent alloc]initWithCard:card];
+        self.data = [[NSMutableDictionary alloc]init];
     }
     
     return self;
@@ -48,6 +58,7 @@
 -(instancetype)initWithJSON:(NSDictionary *)json{
     self = [super init];
     if (self) {
+        
         
         NSString* dateString = json[@"createdAt"];
         if (dateString != nil) {
@@ -67,6 +78,7 @@
             if (json[@"data"][@"localStorageObjectID"] != nil) {
                 self.localStorageObjectID = json[@"data"][@"localStorageObjectID"];
             }
+            self.data = [[NSMutableDictionary alloc]initWithDictionary:json[@"data"]];
         }
         if (json[@"sender"] != nil && ![json[@"sender"] isEqual:(id)[NSNull null]]) {
             self.sender = [[CHSender alloc]initWithJSON:json[@"sender"]];
@@ -87,50 +99,36 @@
 }
 
 - (NSDictionary*)toJSON{
-    
+    NSLog(@"%@",self.data.description);
     if (self.content.card !=nil){
         return @{@"card":[self.content.card toJSON]};
     }
     
-    NSMutableDictionary* json = [[NSMutableDictionary alloc]init];
+    
+    if (self.data == nil) {
+        self.data = [[NSMutableDictionary alloc]init];
+    }
+    
     if (self.content.text != nil){
-        json[@"text"] = self.content.text;
+        self.data[@"text"] = self.content.text;
     }
     
     if (self.localStorageObjectID != nil){
-        json[@"localStorageObjectID"] = self.localStorageObjectID;
+        self.data[@"localStorageObjectID"] = self.localStorageObjectID;
     }
     
     if (self.content.postback != nil) {
-        json[@"postback"] = [self.content.postback toJSON];
+        self.data[@"postback"] = [self.content.postback toJSON];
     }
-    
-    return json;
+    NSLog(@"%@",self.data.description);
+    return self.data;
 }
 
 - (NSData*)toData {
-    NSMutableDictionary* json = [[NSMutableDictionary alloc]init];
-    if (self.sender != nil){
-        json[@"sender"] = [self.sender toJSON];
-    }
-    
-    if (self.content != nil) {
-        json[@"data"] = [self.content toJSON];
-    }
-    
-    if (self.localStorageObjectID != nil){
-        json[@"localStorageObjectID"] = self.localStorageObjectID;
-    }
-    
-    if (self.createdAt != nil) {
-        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc]init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"];
-        json[@"createdAt"] = [dateFormatter stringFromDate:self.createdAt];
-    }
-    
     NSError* dataError = nil;
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:json options:0 error:&dataError];
-    
+    NSMutableDictionary* wrapper = [[NSMutableDictionary alloc]init];
+    wrapper[@"data"] = self.toJSON;
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:wrapper options:0 error:&dataError];
     return postData;
 }
 

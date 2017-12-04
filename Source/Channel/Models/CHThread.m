@@ -26,6 +26,9 @@
         _publicID = json[@"ID"];
         _threadOwnerClientID = json[@"clientID"];
         self.nextMessagesURL = json[@"next"];
+        if (json[@"data"] != nil) {
+            _data = json[@"data"];
+        }
     }
     return self;
 }

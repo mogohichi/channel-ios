@@ -10,8 +10,8 @@
 
 @implementation CHConstants
 
-#define BASE_URL @"https://api.getchannel.co"
-
+//#define BASE_URL @"https://api.getchannel.co"
+#define BASE_URL @"http://localhost:8080/api"
 NSString* const kError_Domain = @"co.getchannel";
 NSString* const kChannel_Base_API = BASE_URL;
 NSString* const kChannel_EventSourceURL = BASE_URL;

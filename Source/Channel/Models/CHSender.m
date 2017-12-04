@@ -16,6 +16,7 @@
         self.name = json[@"name"];
         self.publicID = json[@"clientID"];
         self.imageUrl = json[@"profilePictureURL"];
+        self.appUserID = json[@"userID"];
     }
     return self;
 }
@@ -36,4 +37,11 @@
     
     return json;
 }
+
+- (NSData*)toData {
+    NSError* dataError = nil;
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:self.toJSON options:0 error:&dataError];
+    return postData;
+}
+
 @end
