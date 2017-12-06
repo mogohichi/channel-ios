@@ -26,7 +26,7 @@
 //Added November 30 2017
 @property (nonatomic, nullable, readonly) NSString* publicID;
 @property (nonatomic, nullable, readonly) NSString* threadOwnerClientID;
-@property (nonatomic, nullable, readonly) NSDictionary* data;
+@property (nonatomic, nullable, readonly) NSMutableDictionary* data;
 //end
 
 - (instancetype _Nullable )initWithJSON:(NSDictionary*_Nullable)json;
