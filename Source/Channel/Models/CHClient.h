@@ -19,6 +19,7 @@
 
 @class CHClient;
 @class CHConversation;
+@class CHSender;
 
 @protocol CHClientDelegate <NSObject>
 
@@ -43,10 +44,11 @@ typedef void (^DidUnsubscribeFromTopic) (CHTopic* topics, NSError* error);
 typedef void (^DidSearchUser) (CHUser* user, NSError* error);
 typedef void (^DidLoadConversations) (NSArray<CHConversation*>* conversations, NSError* error);
 typedef void (^DidLoadConversationThread) (CHThread* thread, NSError* error);
-typedef void (^DidStartConversationThread) (CHThread* thread, NSError* error);
+typedef void (^DidStartConversationThread) (CHConversation* conversation, NSError* error);
 typedef void (^DidJoinConversationThread) (NSError* error);
 typedef void (^DidLeaveConversationThread) (NSError* error);
-
+typedef void (^DidInviteToConversation) (CHConversation* conversation, NSError* error);
+typedef void (^DidSubscribeToConversationsUpdate) (CHConversation* conversation, NSError* error);
 
 @interface CHClient : CHBase
 
@@ -54,6 +56,7 @@ typedef void (^DidLeaveConversationThread) (NSError* error);
 @property (nonatomic, strong) NSString* userID;
 @property (nonatomic, strong) NSDictionary* userData;
 @property (nonatomic) id<CHClientDelegate> delegate;
+@property (nonatomic, readonly) CHSender* asSender;
 
 +(void)connectClientwithUserID:(NSString*)userID userData:(NSDictionary*)userData block:(DidConnectClient)block;
 + (void)connectClient:(DidConnectClient)block;
@@ -105,13 +108,15 @@ typedef void (^DidLeaveConversationThread) (NSError* error);
 
 
 //New APIs added for User <--> User communication
-- (void)searchUserByID:(NSString*)query block:(DidSearchUser)block;
-- (void)conversations:(DidLoadConversations)block;
-- (void)sendMessage:(CHMessage*)message thread:(CHThread*)thread block:(DidSendMessage)block;
-- (void)startConversation:(NSArray<CHUser*>*)users block:(DidStartConversationThread)block;
-- (void)loadConversationThread:(CHThread*)thread block:(DidLoadConversationThread)block;
-- (void)joinThread:(CHThread*)thread block:(DidJoinConversationThread)block;
-- (void)leaveThread:(CHThread*)thread block:(DidLeaveConversationThread)block;
-- (void)subscribeToThreadUpdate:(CHThread*)thread;
+- (void)searchUserByID:(NSString* _Nonnull)query block:(DidSearchUser _Nonnull)block;
+- (void)conversations:(DidLoadConversations _Nonnull)block;
+- (void)sendMessage:(CHMessage* _Nonnull)message thread:(CHThread* _Nonnull)thread block:(DidSendMessage _Nonnull)block;
+- (void)startConversation:(NSArray<CHUser*>* _Nonnull)users data:(NSDictionary* _Nullable)data block:(DidStartConversationThread _Nonnull)block;
+- (void)loadConversationThread:(CHThread* _Nonnull)thread block:(DidLoadConversationThread _Nonnull)block;
+- (void)joinThread:(CHThread* _Nonnull)thread block:(DidJoinConversationThread _Nonnull)block;
+- (void)leaveThread:(CHThread* _Nonnull)thread block:(DidLeaveConversationThread _Nonnull)block;
+- (void)inviteUsers:(NSArray<CHUser*>* _Nonnull)users thread:(CHThread* _Nonnull)thread block:(DidInviteToConversation _Nonnull)block;
+- (void)subscribeToThreadUpdate:(CHThread* _Nonnull)thread;
+- (void)subscribeToConversationsUpdate:(DidSubscribeToConversationsUpdate _Nonnull)block;
 
 @end

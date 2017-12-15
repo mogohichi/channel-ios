@@ -12,13 +12,14 @@
 #import "CHNotificationButton.h"
 #import "CHMessage.h"
 #import "CHBlock.h"
-#import "CHClient.h"
 #import "CHApplication.h"
+#import "CHClient.h"
 
 @class Channel;
 @class CHNotification;
 @class CHNotificationButton;
 @class CHMessage;
+@class CHClient;
 
 @protocol ChannelDelegate <NSObject>
 
@@ -42,6 +43,7 @@ typedef void (^DidCheckUnseenMessage)(NSInteger numberOfNewMessages);
 @property (weak, nonatomic, nullable) id<ChannelDelegate> delegate;
 
 + (Channel* _Nonnull)shared;
++ (CHClient* _Nonnull)currentClient;
 
 + (void)setupWithApplicationId:(NSString* _Nonnull)appId;
 

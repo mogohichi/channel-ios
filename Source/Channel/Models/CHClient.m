@@ -20,7 +20,8 @@
 @interface CHClient()
 
 @property (nonatomic) EventSource *source;
-
+@property (nonatomic) EventSource *conversationSource;
+@property (nonatomic) NSString* currentSubscribedURL;
 @end
 
 @implementation CHClient
@@ -50,6 +51,12 @@
         shared = [self new];
     });
     return shared;
+}
+
+-(CHSender *)asSender{
+    CHSender* sender = [[CHSender alloc]init];
+    sender.publicID = self.clientID;
+    return sender;
 }
 
 -(void)applicationInfo:(DidGetApplicationInfo)block{
@@ -140,6 +147,7 @@
     NSMutableDictionary* data = [[NSMutableDictionary alloc]initWithDictionary:[message toJSON]];
     [params setValue:data forKey:@"data"];
     [CHAPI post:@"/thread/messages" params:params block:^(id data, NSError *error) {
+        
     }];
 }
 
@@ -473,7 +481,7 @@
     }];
 }
 
-- (void)startConversation:(NSArray<CHUser*>*)users block:(DidStartConversationThread)block{
+- (void)startConversation:(NSArray<CHUser*>*)users data:(NSDictionary*)data block:(DidStartConversationThread)block{
     NSString* url = @"/conversations";
     NSMutableDictionary* params = [[NSMutableDictionary alloc]init];
     NSMutableArray* clientList = [[NSMutableArray alloc]init];
@@ -481,13 +489,17 @@
         [clientList addObject:u.publicID];
     }
     [params setValue:clientList forKey:@"clients"];
+    if (data != nil) {
+        [params setValue:data forKey:@"data"];
+    }
+    
     [CHAPI post:url params:params block:^(id data, NSError *error) {
         if (error != nil) {
             block(nil,error);
             return;
         }
         NSDictionary* json = data;
-        CHThread* obj = [[CHThread alloc]initWithJSON:json];
+        CHConversation* obj = [[CHConversation alloc]initWithJSON:json];
         block(obj,nil);
         
     }];
@@ -503,6 +515,7 @@
         
         NSArray* messages = data[@"messages"];
         thread.nextMessagesURL = data[@"next"];
+        thread.messages = [[NSMutableArray alloc]init];
         for (NSDictionary* m in messages){
             CHMessage* message = [[CHMessage alloc]initWithJSON:m];
             [thread addMessage:message];
@@ -517,6 +530,7 @@
     NSMutableDictionary* data = [[NSMutableDictionary alloc]initWithDictionary:[message toJSON]];
     [params setValue:data forKey:@"data"];
     [CHAPI post:url params:params block:^(id data, NSError *error) {
+        block(thread, message, error);
     }];
 }
 
@@ -534,11 +548,16 @@
 
 
 - (void)subscribeToThreadUpdate:(CHThread*)thread {
+    NSURL *serverURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/subscribe?threadID=%@",kChannel_Base_API, thread.publicID]];
+    if (self.currentSubscribedURL != nil && ![self.currentSubscribedURL isEqualToString:serverURL.absoluteString]) {
+        [self.source close];
+        self.source = nil;
+    }
     //avoid double connection
     if (self.source != nil) {
         return;
     }
-    NSURL *serverURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/subscribe?threadID=%@",kChannel_Base_API, thread.publicID]];
+    self.currentSubscribedURL = serverURL.absoluteString;
     self.source = [EventSource eventSourceWithURL:serverURL];
     [self.source onMessage:^(Event *e) {
         //we watch only for the message event
@@ -572,5 +591,68 @@
     }];
 }
 
+- (void)inviteUsers:(NSArray<CHUser*>*)users thread:(CHThread*)thread block:(DidInviteToConversation)block {
+    NSString* url = [NSString stringWithFormat:@"/conversations/%@", thread.publicID];
+    NSMutableDictionary* params = [[NSMutableDictionary alloc]init];
+    NSMutableArray* clientList = [[NSMutableArray alloc]init];
+    for (CHUser* u in users) {
+        [clientList addObject:u.publicID];
+    }
+    [params setValue:clientList forKey:@"clients"];
+    [CHAPI post:url params:params block:^(id data, NSError *error) {
+        if (error != nil) {
+            block(nil,error);
+            return;
+        }
+        //NSDictionary* json = data;
+        //CHConversation* obj = [[CHConversation alloc]initWithJSON:json];
+        block(nil,nil);
+        
+    }];
+    
+}
+
+- (void)subscribeToConversationsUpdate:(DidSubscribeToConversationsUpdate)block{
+    
+    NSURL *serverURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/subscribe/client",kChannel_Base_API]];
+//    if (self.currentSubscribedURL != nil && ![self.currentSubscribedURL isEqualToString:serverURL.absoluteString]) {
+//        [self.source close];
+//        self.source = nil;
+//    }
+//    //avoid double connection
+//    if (self.source != nil) {
+//        return;
+//    }
+//    self.currentSubscribedURL = serverURL.absoluteString;
+    self.conversationSource = [EventSource eventSourceWithURL:serverURL];
+    [self.conversationSource onMessage:^(Event *e) {
+        //we watch only for the message event
+        if (![e.event isEqualToString:@""]){
+            NSData* data = [e.data dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary* obj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            CHConversation* conversation = [[CHConversation alloc]initWithJSON:obj];
+            if (conversation.thread == nil) {
+                return;
+            }
+            block(conversation,nil);
+            return;
+        }
+    }];
+    
+    [self.conversationSource addEventListener:@"typing" handler:^(Event *event) {
+        
+    }];
+    [self.conversationSource addEventListener:@"message" handler:^(Event *event) {
+        
+    }];
+    
+    [self.conversationSource onError:^(Event *event) {
+        
+    }];
+    
+    [self.conversationSource onOpen:^(Event *event) {
+        
+    }];
+}
 
 @end

@@ -26,6 +26,17 @@
         _publicID = json[@"ID"];
         _threadOwnerClientID = json[@"clientID"];
         self.nextMessagesURL = json[@"next"];
+        if (json[@"data"] != nil) {
+            _data = json[@"data"];
+        }
+    }
+    return self;
+}
+
+- (instancetype _Nullable )initWithThreadID:(NSString* _Nonnull)threadID {
+    self = [super init];
+    if (self) {
+        _publicID = threadID;
     }
     return self;
 }
@@ -50,6 +61,5 @@
     [self.messages addObject:message];
     [self callDelegate:message];
 }
-
 
 @end

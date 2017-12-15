@@ -38,6 +38,7 @@
         if (json[@"text"] != nil) {
             self.text = json[@"text"];
         }
+        
         if (json[@"topic"] != nil) {
             self.topic = [[CHTopic alloc]init];
             self.topic.name = json[@"topic"];
@@ -68,6 +69,24 @@
         self.card = card;
     }
     return self;
+}
+
+
+- (NSDictionary*)toJSON{
+    NSMutableDictionary* json = [[NSMutableDictionary alloc]init];
+    if (self.text != nil){
+        json[@"text"] = self.text;
+    }
+    
+    if (self.postback != nil) {
+        json[@"postback"] = [self.postback toJSON];
+    }
+    
+    if (self.card != nil) {
+        json[@"card"] = [self.card toJSON];
+    }
+    
+    return json;
 }
 
 @end
