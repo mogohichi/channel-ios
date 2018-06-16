@@ -15,9 +15,7 @@
 #import <arpa/inet.h>
 
 // route
-
 #include "route.h"
-
 
 // sysctl
 #import <sys/sysctl.h>

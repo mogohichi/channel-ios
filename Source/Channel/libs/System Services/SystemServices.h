@@ -75,6 +75,15 @@
 // Plugged In?
 @property (nonatomic, readonly) BOOL pluggedIn;
 
+// Step-Counting Available?
+@property (nonatomic, readonly) BOOL stepCountingAvailable;
+
+// Distance Available
+@property (nonatomic, readonly) BOOL distanceAvailable;
+
+// Floor Counting Available
+@property (nonatomic, readonly) BOOL floorCountingAvailable;
+
 /* Jailbreak Check */
 
 // Jailbroken?
@@ -264,6 +273,8 @@
 // Application Version
 @property (nonatomic, readonly, nullable) NSString *applicationVersion;
 
+// Clipboard Content
+@property (nonatomic, readonly, nullable) NSString *clipboardContent;
 
 // Application CPU Usage
 @property (nonatomic, readonly) float applicationCPUUsage;

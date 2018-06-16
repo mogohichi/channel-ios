@@ -40,6 +40,28 @@
     }
 }
 
+// Clipboard Content
++ (NSString *)clipboardContent {
+    // Get the string content of the clipboard (copy, paste)
+    @try {
+        // Get the Pasteboard
+        UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+        // Get the string value of the pasteboard
+        NSString *clipboardContent = [pasteBoard string];
+        // Check for validity
+        if (clipboardContent == nil || clipboardContent.length <= 0) {
+            // Error, invalid pasteboard
+            return nil;
+        }
+        // Successful
+        return clipboardContent;
+    }
+    @catch (NSException *exception) {
+        // Error
+        return nil;
+    }
+}
+
 // Application CPU Usage
 + (float)cpuUsage {
     @try {
